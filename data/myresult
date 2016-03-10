@@ -1,0 +1,6 @@
+time :2015-01-11 22:38:15
+dataset: ant
+bestscore: 75
+infoPrune: 0.1
+threshold: 0.23
+prune: False

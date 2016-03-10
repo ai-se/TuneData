@@ -1,0 +1,14 @@
+apache test_data:
+
+nondelay: 2214
+low delay: 261
+medium: 163
+high:189
+
+apache train_data:
+
+
+nondelay:5724
+low:711
+medium: 239
+high: 481
