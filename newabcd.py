@@ -16,21 +16,13 @@ def sk_abcd(pred_lst, actual_lst, threshold):
     def isDef(x):
         return ["Defective" if i >= threshold else "Non-Defective" for i in x]
 
-    def getLabel():
-        label = []
-        for i in actual_lst:
-            if i not in label:
-                label.append(i)
-        return label
-
-
-    def getABCD(label):
+    def getABCD(labels):
         """
         :param label: all labels in this data sets
         :return (A,B,C,D)true negative, false negative, false positive, true positive
         """
         for actual, predict in zip(actual_lst, pred_lst):
-            for i in label:
+            for i in labels:
                 if actual == i:
                     if actual == predict:
                         D[i] = D.get(i, 0) + 1
@@ -43,13 +35,13 @@ def sk_abcd(pred_lst, actual_lst, threshold):
                         A[i] = A.get(i, 0) + 1
         return A, B, C, D
 
-    def score(label):
+    def score(labels):
         """
         :param label: list, all labels contained in the actual data
         :return out:list of list, [[pd, pf,prec,f,g],[pd,pf,prec,f,g]]
         """
         out = []
-        for i in label:
+        for i in labels:
             pd = pf = prec = f = g = 0
             a = A.get(i, 0)
             b = B.get(i, 0)
@@ -69,7 +61,7 @@ def sk_abcd(pred_lst, actual_lst, threshold):
     A, B, C, D = {}, {}, {}, {}
     pred_lst = isDef(pred_lst)
     actual_lst = isDef(actual_lst)
-    labels = getLabel()
+    labels = ['Non-Defective', 'Defective']
     A, B, C, D = getABCD(labels)
-    out = score(['Non-Defective', 'Defective'])
+    out = score(labels)
     return out
