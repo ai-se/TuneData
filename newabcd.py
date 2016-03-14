@@ -1,13 +1,16 @@
 """ This is the module to claculate pd, pf, precision, f, g and auc(not yet)"""
 from __future__ import division
-# import sys
-# from sklearn.metrics import roc_curve, auc, roc_auc_score
 import pdb
-import numpy as np
 
 
 def sk_abcd(pred_lst, actual_lst, threshold):
-    # n = lambda x: int(x)
+    """
+    :param pred_lst: array_like, the predicted results
+           actual_lst: array_like, the actual labels
+    :return out: list of list, [[pd, pf,prec,f,g],[pd,pf,prec,f,g]]
+                 the firs list contains scores for non-defective data,
+                 the second list contains scores for defective data
+    """
     p = lambda x: int(x * 100)
 
     def isDef(x):
@@ -20,18 +23,11 @@ def sk_abcd(pred_lst, actual_lst, threshold):
                 label.append(i)
         return label
 
-    # def get_auc(y_predict, predict_pro, y_actual):
-    #     if y_predict.dtype == np.dtype("S13"):  ##  defective or non-defective
-    #         fpr, tpr, thresholds = roc_curve(y_actual, predict_pro, pos_label="Defective")
-    #     else:  # this is 0 or 1, no need to specify pros_label
-    #         fpr, tpr, thresholds = roc_curve(y_actual, predict_pro)
-    #     roc_auc = auc(fpr, tpr)
-    #     return roc_auc
 
     def getABCD(label):
         """
         :param label: all labels in this data sets
-        :return (A,B,C,D)true positive, false negative, false positive, true negative
+        :return (A,B,C,D)true negative, false negative, false positive, true positive
         """
         for actual, predict in zip(actual_lst, pred_lst):
             for i in label:
@@ -48,6 +44,10 @@ def sk_abcd(pred_lst, actual_lst, threshold):
         return A, B, C, D
 
     def score(label):
+        """
+        :param label: list, all labels contained in the actual data
+        :return out:list of list, [[pd, pf,prec,f,g],[pd,pf,prec,f,g]]
+        """
         out = []
         for i in label:
             pd = pf = prec = f = g = 0
@@ -72,8 +72,4 @@ def sk_abcd(pred_lst, actual_lst, threshold):
     labels = getLabel()
     A, B, C, D = getABCD(labels)
     out = score(['Non-Defective', 'Defective'])
-    # auc_score = int(get_auc(pred_lst, actual_lst) * 100)
-    # out[0].append(auc_score)
-    # out[1].append(auc_score)
-    pdb.set_trace()
     return out
