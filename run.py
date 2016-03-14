@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import scorer
 import sklearn.grid_search as grid_search
-from os import getenv
+from os import getcwd
 from os import listdir
 from os.path import join, isfile
 from time import strftime
@@ -16,8 +16,8 @@ from sk import rdivDemo
 
 
 def create_file(objective):
-    home_path = getenv("HOME")
-    file_name = (home_path + '/Github/Caret/result/' + strftime(
+    home_path = getcwd()
+    file_name = (home_path + '/result/' + strftime(
         "%Y-%m-%d %H:%M:%S") + objective)
     f = open(file_name, 'w').close()
     return file_name
@@ -59,8 +59,8 @@ def getScoring(goal):
 
 def load_data(path, num_dataset=3, class_col=23):
     def cov(data):
-        lst = [1 if i > 0  else 0 for i in data]
-        return lst
+        # lst = ["Defective" if i > 0  else "Non-Defective" for i in data]
+        return data
 
     def build(src):
         df = pd.read_csv(src, header=0)
@@ -71,7 +71,7 @@ def load_data(path, num_dataset=3, class_col=23):
         return [train_X, train_Y]
 
     folders = [f for f in listdir(path) if not isfile(join(path, f))]
-    for folder in folders[:]:
+    for folder in folders[:1]:
         nextpath = join(path, folder)
         # folder_name = nextpath[nextpath.rindex("/") + 1:]
         data = [join(nextpath, f) for f in listdir(nextpath) if
@@ -112,14 +112,14 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
         return stat
 
     print("\n" + "+" * 20 + "\n DataSet: " + dataname + "\n" + "+" * 20)
-    obj = ["pd", "pf", "prec", "f", "g", "auc"]
+    obj = ["pd", "pf", "prec", "f", "g"]
     for j, k in enumerate(obj):
         express = "\n" + "*" * 10 + " " + k + " " + "*" * 10
         print(express)
         writefile(file_name, express)
         # pdb.set_trace()
-        if j == goal_index:
-            count_better(lst[j])
+        # if j == goal_index:
+        #     count_better(lst[j])
         rdivDemo(file_name, myrdiv(lst[j]))
     out_better = (
         "\n In terms of " + str(goal_index) + " : the times of better "
@@ -132,7 +132,7 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
     print("\n")
 
 
-def start(src, randomly=True, processor=10, learner_lst=[CART, RF],
+def start(src, randomly=True, processor=10,
           goal="precision", repeats=5):
     tuning_goal = ["pd", "pf", "precision", "f1", "g", "auc"]
     if goal not in tuning_goal:
@@ -142,12 +142,16 @@ def start(src, randomly=True, processor=10, learner_lst=[CART, RF],
     file_name = create_file(goal)
     which_is_better = {}
     for data_tpl in load_data(src):
-        pd, pf, prec, F, g, auc = {}, {}, {}, {}, {}, {}
-        score_lst = [pd, pf, prec, F, g, auc]
+        pd, pf, prec, F, g = {}, {}, {}, {}, {}
+        score_lst = [pd, pf, prec, F, g]
         data_name, data_lst = data_tpl  # data_lst include 3 consective data
         #  sets
         train_data_X = np.concatenate((data_lst[0][0], data_lst[1][0]), axis=0)
         train_data_Y = np.concatenate((data_lst[0][1], data_lst[1][1]), axis=0)
+        new_train_data_X = data_lst[0][0]
+        new_train_data_Y = data_lst[0][1]
+        new_tuning_data_X = data_lst[1][0]
+        new_tuning_data_Y = data_lst[1][1]
         test_data_X = data_lst[2][0]
         test_data_Y = data_lst[2][1]
         title = ("GriSearch: " + str(
@@ -156,8 +160,8 @@ def start(src, randomly=True, processor=10, learner_lst=[CART, RF],
             "%Y-%m-%d %H:%M:%S"))  # pdb.set_trace()
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
-        for predictor in learner_lst:
-            for task in ["Naive_", "Tuned_", "Grid_"]:  # "Naive_", "Tuned_",
+        for predictor in [RF]:
+            for task in ["Tuned_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
@@ -166,9 +170,8 @@ def start(src, randomly=True, processor=10, learner_lst=[CART, RF],
                     clf = predictor().default()
                     clf.fit(train_data_X, train_data_Y)
                     predict_result = clf.predict(test_data_X)
-                    predict_pro = clf.predict_proba(test_data_X)
                     score = sk_abcd(predict_result, test_data_Y,
-                                    predict_pro[:, 1])
+                                    0.5)
                     save_score(name, score, score_lst)
                 elif task == "Grid_":
                     new_predictor = predictor()
@@ -183,19 +186,25 @@ def start(src, randomly=True, processor=10, learner_lst=[CART, RF],
                         clf.fit(train_data_X, train_data_Y)
                         # best_params = clf.best_params_
                         predict_result = clf.predict(test_data_X)
-                        predict_pro = clf.predict_proba(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
-                                        predict_pro[:, 1])
+                                        0.5)
                         save_score(name, score, score_lst)
                 elif task == "Tuned_":
                     new_predictor = predictor()
                     for _ in xrange(repeats):
-                        clf = DE_tuner(new_predictor, tuning_goal.index(goal),
-                                       train_data_X, train_data_Y, file_name)
+                        clf, threshold = DE_tuner(new_predictor,
+                                                  goal_index=tuning_goal.index(
+                                                      goal),
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_Y,
+                                                  file_name=file_name)
+                        # pdb.set_trace()
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
                         predict_result = clf.predict(test_data_X)
-                        predict_pro = clf.predict_proba(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
-                                        predict_pro[:, 1])
+                                        threshold=threshold)
                         save_score(name, score, score_lst)
                 run_time = name + " Running Time: " + str(
                     round(time.time() - begin_time, 3) / repeats)
@@ -207,7 +216,7 @@ def start(src, randomly=True, processor=10, learner_lst=[CART, RF],
 
 def run(goal, randomly):
     if randomly.lower() == "true":
-        start(src="/share3/wfu/Caret/" , goal=goal, randomly=True)
+        start(src="/share3/wfu/Caret/", goal=goal, randomly=True)
     else:
         start(src="/share3/wfu/Caret/", goal=goal, randomly=False)
 
@@ -224,8 +233,9 @@ def atom(x):
 
 def cmd(com="./data/ant"):
     "Convert command line to a function call."
-    # pdb.set_trace()
-    if len(sys.argv) < 2: return start("./data/ant", True)
+
+    # # pdb.set_trace()
+    # if len(sys.argv) < 2: return start("./data/ant", True)
 
     def strp(x): return isinstance(x, basestring)
 
@@ -236,10 +246,10 @@ def cmd(com="./data/ant"):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) <2:
+    if len(sys.argv) < 2:
         start("./data", False)
     else:
         eval(cmd())
-    # for i in ["precision", "f1", "auc"]:
-    #     for j in [True, False]:
-    #         start(goal=i, randomly=j)
+        # for i in ["precision", "f1", "auc"]:
+        #     for j in [True, False]:
+        #         start(goal=i, randomly=j)
