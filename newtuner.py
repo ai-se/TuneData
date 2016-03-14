@@ -52,19 +52,24 @@ class deBase(object):
 
     def evaluate(self):
         for n, arglst in enumerate(self.frontier):
-            clf = self.assign(arglst)
-            self.scores[n] = self.callModel(clf)
+            # clf = self.assign(arglst)
+            clf, threshold = self.assign(arglst)
+            self.scores[n] = self.callModel(clf, threshold=threshold)
             # main return [[pd,pf,prec,f,g],[pd,pf,prec,f,g]], which are
             # N-defective,Y-defecitve
 
     def assign(self, tunedvalue):
         param_dict = {}
+        threshold = None
         for key, val in zip(self.tobetuned, tunedvalue):
-            param_dict[key] = val
+            if key != "threshold":
+                param_dict[key] = val
+            else:
+                threshold = val
         param_dict["random_state"] = 1
         clf = self.predictor.default(param_dict).fit(self.train_X,
                                                      self.train_Y)
-        return clf
+        return clf, threshold
 
     def best(self):
         sortlst = []
@@ -79,10 +84,10 @@ class deBase(object):
         bestscore = sortlst[-1][-1][self.obj]
         return bestconf, bestscore
 
-    def callModel(self, clf):
+    def callModel(self, clf, threshold):
         predict_result = clf.predict(self.test_X)
-        predict_pro = clf.predict_proba(self.test_X)
-        scores = sk_abcd(predict_result, self.test_Y, predict_pro[:, 1])
+        # predict_pro = clf.predict_proba(self.test_X)
+        scores = sk_abcd(predict_result, self.test_Y, threshold=threshold)
         return scores[-1]
 
     def treat(self, lst):
@@ -139,6 +144,8 @@ class deBase(object):
         #     # exec ("temp =" + p)
         #     writefile(self.file_name, p + ": " + str(temp))
         writefile(self.file_name, "evaluation: " + str(self.evaluation))
+        writefile(self.file_name, "final bestescore: " + str(self.bestscore))
+        writefile(self.file_name, "final config:" + str(self.bestconf))
 
     def DE(self):
         changed = False
@@ -152,8 +159,8 @@ class deBase(object):
             nextgeneration = []
             for index, f in enumerate(self.frontier):
                 new = self.update(index, f)
-                clf = self.assign(new)
-                newscore = self.callModel(clf)
+                clf, threshold = self.assign(new)
+                newscore = self.callModel(clf, threshold=threshold)
                 self.evaluation += 1
                 if isBetter(newscore[self.obj], self.scores[index][self.obj]):
                     nextgeneration.append(new)
@@ -172,11 +179,11 @@ class deBase(object):
                 self.life -= 1
             changed = False
         self.writeResults()
-        # print "final bestescore %s: " + str(self.bestscore)
-        # print "final bestconf %s: " + str(self.bestconf)
-        # print "DONE !!!!"
-        clf = self.assign(self.bestconf)
-        return clf
+        print "final bestescore %s: " + str(self.bestscore)
+        print "final bestconf %s: " + str(self.bestconf)
+        print "DONE !!!!"
+        clf,threshold = self.assign(self.bestconf)
+        return clf,threshold
 
 
 class WhereDE(deBase):
@@ -214,14 +221,8 @@ class RfDE(deBase):
         return lst
 
 
-def DE_tuner(predictor, goal_index, train_X, train_Y, file_name):
-    index_train_tune = [(train, test) for train, test in
-                        StratifiedKFold(train_Y, n_folds=2, random_state=1)]
-    # here n_folds is hard-coded to 2
-    new_train_X = train_X[index_train_tune[0][0]]  # the first fold as train
-    new_train_Y = train_Y[index_train_tune[0][0]]  # the first fold as train
-    new_test_X = train_X[index_train_tune[0][1]]  # the second fold as test
-    new_test_Y = train_Y[index_train_tune[0][1]]  # the second fold as test
+def DE_tuner(predictor, goal_index, new_train_X, new_train_Y, new_test_X,
+             new_test_Y, file_name):
     tuner = deBase(predictor, goal_index, new_train_X, new_train_Y, new_test_X,
                    new_test_Y, file_name)
 
