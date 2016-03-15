@@ -1,0 +1,31 @@
+GriSearch: False
+Tuning objective: precision
+Begin time: 2016-03-10 17:10:44
+Dataset: antV0
+------------------------------
+
+Naive_CART Running Time: 0.0006
+------------------------------
+
+evaluation: 60
+evaluation: 50
+evaluation: 60
+evaluation: 80
+evaluation: 60
+Tuned_CART Running Time: 0.0926
+------------------------------
+
+Grid_CART Running Time: 0.4596
+------------------------------
+
+Naive_RF Running Time: 0.0058
+------------------------------
+
+evaluation: 70
+evaluation: 60
+evaluation: 70
+evaluation: 50
+evaluation: 50
+Tuned_RF Running Time: 17.3228
+------------------------------
+

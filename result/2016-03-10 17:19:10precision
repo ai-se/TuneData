@@ -1,0 +1,86 @@
+GriSearch: False
+Tuning objective: precision
+Begin time: 2016-03-10 17:19:10
+Dataset: antV0
+------------------------------
+
+Naive_CART Running Time: 0.0006
+------------------------------
+
+max_features: 0
+max_depth: 0
+min_samples_split: 0
+min_samples_leaf: 0
+evaluation: 60
+final bestescore: 47
+max_features: 0
+max_depth: 0
+min_samples_split: 0
+min_samples_leaf: 0
+evaluation: 50
+final bestescore: 41
+max_features: 0
+max_depth: 0
+min_samples_split: 0
+min_samples_leaf: 0
+evaluation: 60
+final bestescore: 39
+max_features: 0
+max_depth: 0
+min_samples_split: 0
+min_samples_leaf: 0
+evaluation: 80
+final bestescore: 62
+max_features: 0
+max_depth: 0
+min_samples_split: 0
+min_samples_leaf: 0
+evaluation: 60
+final bestescore: 40
+Tuned_CART Running Time: 0.0944
+------------------------------
+
+Grid_CART Running Time: 0.4632
+------------------------------
+
+Naive_RF Running Time: 0.0056
+------------------------------
+
+min_samples_split: 0
+min_samples_leaf: 0
+max_leaf_nodes: 0
+n_estimators: 0
+max_features: 0
+evaluation: 70
+final bestescore: 40
+min_samples_split: 0
+min_samples_leaf: 0
+max_leaf_nodes: 0
+n_estimators: 0
+max_features: 0
+evaluation: 60
+final bestescore: 50
+min_samples_split: 0
+min_samples_leaf: 0
+max_leaf_nodes: 0
+n_estimators: 0
+max_features: 0
+evaluation: 70
+final bestescore: 33
+min_samples_split: 0
+min_samples_leaf: 0
+max_leaf_nodes: 0
+n_estimators: 0
+max_features: 0
+evaluation: 50
+final bestescore: 37
+min_samples_split: 0
+min_samples_leaf: 0
+max_leaf_nodes: 0
+n_estimators: 0
+max_features: 0
+evaluation: 50
+final bestescore: 0
+Tuned_RF Running Time: 16.9758
+------------------------------
+
