@@ -11,7 +11,9 @@
 from __future__ import division
 import sys,random,math
 sys.dont_write_bytecode = True
-# from settings import *
+from scipy.stats import ks_2samp as ks
+import pdb
+import numpy as np
 """
 
 #### Standard Utils
@@ -502,9 +504,51 @@ def rdivDemo(file_name,data):
                  (x.rank+1, x.name, q2, q3 - q1))  + \
               xtile(x.all,lo=lo,hi=hi,width=30,show="%5.2f")
     writefile(file_name,('%4s , %20s ,    %4s  ,  %4s ' % \
+              (x.rank+1, x.name, q2, q3 - q1))  + \
+              xtile(x.all,lo=lo,hi=hi,width=30,show="%5.2f"))
+    last = x.rank
+
+
+def ksDemo(file_name, data):
+  print ""
+  line = "----------------------------------------------------"
+  last = None
+  print  ('%4s , %20s ,    %s   , %4s ' % \
+               ('rank', 'name', 'med', 'iqr'))+ "\n"+ line
+  writefile(file_name,('%4s , %20s ,    %s   , %4s ' % \
+               ('rank', 'name', 'med', 'iqr'))+ "\n"+ line)
+  data = map(lambda lst:Num(lst[0],lst[1:]),
+             data)
+  data_sorted = sorted(data, key=lambda x:np.median(x.all))
+  ranks=[(data_sorted[0].rank, data_sorted[0].median(), data_sorted[0])]
+  for i in xrange(len(data_sorted)-1):
+    D, p = ks(data_sorted[i].all,data_sorted[i+1].all)
+    if p <=0.05:
+      data_sorted[i+1].rank = data_sorted[i].rank +1
+    else:
+      data_sorted[i+1].rank = data_sorted[i].rank
+    ranks +=[(data_sorted[i+1].rank,data_sorted[i+1].median(),data_sorted[i+1])]
+
+  all=[]
+  for _,__,x in sorted(ranks): all += x.all
+  all = sorted(all)
+  lo, hi = all[0], all[-1]
+
+  for _,__,x in sorted(ranks):
+    q1,q2,q3 = x.quartiles()
+    q2 = np.median(x.all)
+    print  ('%4s , %20s ,    %4s  ,  %4s ' % \
+                 (x.rank+1, x.name, q2, q3 - q1))  + \
+              xtile(x.all,lo=lo,hi=hi,width=30,show="%5.2f")
+    writefile(file_name,('%4s , %20s ,    %4s  ,  %4s ' % \
                  (x.rank+1, x.name, q2, q3 - q1))  + \
               xtile(x.all,lo=lo,hi=hi,width=30,show="%5.2f"))
-    last = x.rank 
+    last = x.rank
+
+
+
+
+
 """
 
 The demos:
@@ -613,8 +657,8 @@ rank ,         name ,    med   ,  iqr
 
 """
 def rdiv6():
-  rdivDemo([
-      ["x1",11,11,11],
+  ksDemo("",[
+      ["x1",22,34,45],
       ["x2",11,11,11],
       ["x4",32,33,34,35]])
 """
