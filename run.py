@@ -160,7 +160,6 @@ def start(src, randomly=True, processor=10,
             "%Y-%m-%d %H:%M:%S"))  # pdb.set_trace()
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
-        pdb.set_trace()
         for predictor in [RF,CART]:
             for task in ["Tuned_","Naive_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
