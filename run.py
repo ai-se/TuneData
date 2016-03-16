@@ -13,7 +13,7 @@ from mpi4py import MPI
 from newlearner import *
 from newtuner import *
 from sk import rdivDemo
-
+from sk import ksDemo
 
 def create_file(objective):
     home_path = getcwd()
@@ -66,12 +66,12 @@ def load_data(path, num_dataset=3, class_col=23):
         df = pd.read_csv(src, header=0)
         train_Y = np.asarray(cov(df.ix[:, class_col].as_matrix()))
         df = df._get_numeric_data()  # get numeric data
-        df = df.iloc[:, 1:20]  # get rid of version column
+        df = df.iloc[:, 1:21]  # get rid of version column
         train_X = df.as_matrix()  # numpy array with numeric
         return [train_X, train_Y]
 
     folders = [f for f in listdir(path) if not isfile(join(path, f))]
-    for folder in folders[:1]:
+    for folder in folders[:]:
         nextpath = join(path, folder)
         # folder_name = nextpath[nextpath.rindex("/") + 1:]
         data = [join(nextpath, f) for f in listdir(nextpath) if
@@ -133,7 +133,7 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
 
 
 def start(src, randomly=True, processor=10,
-          goal="precision", repeats=5):
+          goal="precision", repeats=1):
     tuning_goal = ["pd", "pf", "precision", "f1", "g", "auc"]
     if goal not in tuning_goal:
         raise ValueError("Tuning goal %s is not supported! only "
@@ -160,19 +160,21 @@ def start(src, randomly=True, processor=10,
             "%Y-%m-%d %H:%M:%S"))  # pdb.set_trace()
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
-        for predictor in [RF]:
-            for task in ["Tuned_"]:  # "Naive_", "Tuned_",
+        pdb.set_trace()
+        for predictor in [RF,CART]:
+            for task in ["Tuned_","Naive_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
                 name = task + predictor.__name__
                 if task == "Naive_":
-                    clf = predictor().default()
-                    clf.fit(train_data_X, train_data_Y)
-                    predict_result = clf.predict(test_data_X)
-                    score = sk_abcd(predict_result, test_data_Y,
-                                    0.5)
-                    save_score(name, score, score_lst)
+                    for _ in xrange(repeats):
+                        clf = predictor().default()
+                        clf.fit(train_data_X, train_data_Y)
+                        predict_result = clf.predict(test_data_X)
+                        score = sk_abcd(predict_result, test_data_Y,
+                                        0.5)
+                        save_score(name, score, score_lst)
                 elif task == "Grid_":
                     new_predictor = predictor()
                     score_fun = getScoring(goal)
