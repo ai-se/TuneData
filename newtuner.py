@@ -48,13 +48,14 @@ class deBase(object):
             else:
                 raise ValueError("type of limits are wrong!")
         # pdb.set_trace()
+
         return self.treat(candidates)
 
     def evaluate(self):
         for n, arglst in enumerate(self.frontier):
             # clf = self.assign(arglst)
             clf, threshold = self.assign(arglst)
-            self.scores[n] = self.callModel(clf, threshold=threshold)
+            self.scores[n] = self.callModel(clf, threshold)
             # main return [[pd,pf,prec,f,g],[pd,pf,prec,f,g]], which are
             # N-defective,Y-defecitve
 
@@ -87,7 +88,7 @@ class deBase(object):
     def callModel(self, clf, threshold):
         predict_result = clf.predict(self.test_X)
         # predict_pro = clf.predict_proba(self.test_X)
-        scores = sk_abcd(predict_result, self.test_Y, threshold=threshold)
+        scores = sk_abcd(predict_result, self.test_Y, threshold)
         return scores[-1]
 
     def treat(self, lst):
@@ -160,7 +161,7 @@ class deBase(object):
             for index, f in enumerate(self.frontier):
                 new = self.update(index, f)
                 clf, threshold = self.assign(new)
-                newscore = self.callModel(clf, threshold=threshold)
+                newscore = self.callModel(clf, threshold)
                 self.evaluation += 1
                 if isBetter(newscore[self.obj], self.scores[index][self.obj]):
                     nextgeneration.append(new)
