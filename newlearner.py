@@ -19,7 +19,7 @@ class RF(object):
 
     def default(self, params=None):
         if not params:
-            return RandomForestRegressor(random_state=1)
+            return RandomForestRegressor(random_state=1,n_estimators=100)
         else:
             return RandomForestRegressor(**params)
 
