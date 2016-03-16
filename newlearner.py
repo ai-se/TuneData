@@ -58,7 +58,7 @@ class CART(object):
         self.clf = self.default()
         self.tunelst = ["max_features", "max_depth", "min_samples_split",
                         "min_samples_leaf","threshold"]
-        self.tune_min = [0.01, 1, 2, 1,0.1]
+        self.tune_min = [0.01, 1, 2, 1, 0.01]
         self.tune_max = [1, 50, 20, 20,1]
 
     def default(self, params=None):
