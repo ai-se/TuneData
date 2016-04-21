@@ -1,59 +1,63 @@
+'''
+This is to clustering tuning data based on testing data.
+'''
 from __future__ import division, print_function
+# import pdb
 import numpy as np
-from sklearn.cluster import KMeans
+# from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
 import pandas as pd
-import pdb
 
 
-def data(path="./data/ant", num_dataset=3, class_col=23):
-    def cov(data):
-        # lst = ["Defective" if i > 0  else "Non-Defective" for i in data]
-        return data
 
-    def build(src):
-        df = pd.read_csv(src, header=0)
-        train_Y = np.asarray(cov(df.ix[:, class_col].as_matrix()))
-        df = df._get_numeric_data()  # get numeric data
-        df = df.iloc[:, 1:21]  # get rid of version column
-        df = df / df.max()  # normalization!
-        train_X = df.as_matrix()  # numpy array with numeric
-        return [train_X, train_Y, df]
-
-    return build(path)
+def get_data(src, name, data_start=3):
+    '''
+    :param src: src of a data set, e.g.: "./data/ant/ant-1.3.csv"
+    :param name: the role of this data set in the experiment,  e.g.:"tune"
+    :return: df, a pandas.DataFrame
+    '''
+    data_df = pd.read_csv(src, header=0)
+    data_df = data_df.iloc[:, data_start:]  # get rid of version column
+    data_df["name"] = np.array([name] * len(data_df))
+    return data_df
 
 
-def get_data(src, name):
-    df = pd.read_csv(src, header=0)
-    df = df._get_numeric_data()
-    df = df.iloc[:, 1:]  # get rid of version column
-    df["name"] = np.array([name] * len(df))
-    return df
-
-
-def get_X_Y(df, normalize=True, class_col=20):
-    Y = np.asarray(df.ix[:, class_col].as_matrix())
-    df = df._get_numeric_data()
-    df = df.iloc[:, :class_col]  # get all independent variables
+def get_xy(data_df, normalize=True, class_col=20):
+    '''
+    :param df: DataFrame containing data
+    :param normalize: a flag, indicate whether normalize the data  or not.
+    :param class_col: indicate which column is the label column.
+    :return:[X,Y], [independent variables, dependent variables]
+    '''
+    data_y = np.asarray(data_df.ix[:, class_col].as_matrix())
+    data_df = data_df.iloc[:, :class_col]  # get all independent variables
     if normalize:
-        df = (df - df.min()) / (df.max() - df.min())
-    X = df.as_matrix()
-    return [X, Y]
+        data_df = (data_df - data_df.min()) / (data_df.max() - data_df.min())
+    data_x = data_df.as_matrix()
+    return [data_x, data_y]
 
 
-def cluster_data(tune_path="./data/ant/ant-1.3.csv", test_path="./data/ant/ant-1.4.csv"):
+def cluster_data(tune_path=None, test_path=None):
+    '''
+    :param tune_path: src of a tuning data set
+    :param test_path: src of a testing data set
+    :return: tuning data after clustering, in the form of [indep val, depen val]
+    '''
+    if not tune_path:
+        tune_path = "./data/ant/ant-1.3.csv"
+    if not test_path:
+        test_path = "./data/ant/ant-1.4.csv"
     df_tune = get_data(tune_path, "tune")
     df_test = get_data(test_path, "test")
-    tune_X, tune_Y = get_X_Y(df_tune, normalize=True)
-    test_X, test_Y = get_X_Y(df_test, normalize=True)
-    big_X = np.concatenate((tune_X, test_X))
-    big_Y = np.concatenate((tune_Y, test_Y))
+    tune_x, tune_y = get_xy(df_tune, normalize=True)
+    test_x, test_y = get_xy(df_test, normalize=True)
+    big_x = np.concatenate((tune_x, test_x))
+    # big_Y = np.concatenate((tune_y, test_y))
     big_df = df_tune.append(df_test)
-    big_db = DBSCAN(algorithm="kd_tree").fit(big_X)
-    df_clusters = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
-    actual_tune_X, actual_tune_Y = get_X_Y(df_clusters[df_clusters['name'] == 'tune'], normalize=False)
-    # actual_test_X, actual_test_Y = get_X_Y(df_clusters[df_clusters['name'] == 'test'], normalize=False)
-    return[actual_tune_X,actual_tune_Y]
+    big_db = DBSCAN(algorithm="kd_tree").fit(big_x)
+    df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
+    _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'], normalize=False)
+    return [_tune_x, _tune_y]
 
 
 if __name__ == "__main__":
