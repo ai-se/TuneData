@@ -44,9 +44,9 @@ def cluster_data(tune_path=None, test_path=None):
     :return: tuning data after clustering, in the form of [indep val, depen val]
     '''
     if not tune_path:
-        tune_path = "./data/ant/ant-1.3.csv"
+        tune_path = "./data/ant/ant-1.4.csv"
     if not test_path:
-        test_path = "./data/ant/ant-1.4.csv"
+        test_path = "./data/ant/ant-1.5.csv"
     df_tune = get_data(tune_path, "tune")
     df_test = get_data(test_path, "test")
     tune_x, tune_y = get_xy(df_tune, normalize=True)
@@ -57,6 +57,7 @@ def cluster_data(tune_path=None, test_path=None):
     big_db = DBSCAN(algorithm="kd_tree").fit(big_x)
     df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
     _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'], normalize=False)
+    print(len(_tune_x))
     return [_tune_x, _tune_y]
 
 
