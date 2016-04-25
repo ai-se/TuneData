@@ -14,6 +14,8 @@ from newlearner import *
 from newtuner import *
 from sk import rdivDemo
 from sk import ksDemo
+from clustering import cluster_data
+
 
 def create_file(objective):
     home_path = getcwd()
@@ -57,7 +59,7 @@ def getScoring(goal):
     return scoring
 
 
-def load_data(path, num_dataset=3, class_col=23):
+def load_data(path, num_dataset=3, class_col=23, cluster=False):
     def cov(data):
         # lst = ["Defective" if i > 0  else "Non-Defective" for i in data]
         return data
@@ -84,6 +86,7 @@ def load_data(path, num_dataset=3, class_col=23):
                     X.append(build(data[i + j]))
             except IndexError, e:
                 break
+            X.append(cluster_data(data[i+1], data[i + 2]))  ## quick and dirty work. do clustering. put the clustered tuning data at the end of this list
             yield (folder + "V" + str(count), X)
             count += 1
 
@@ -160,8 +163,8 @@ def start(src, randomly=True, processor=10,
             "%Y-%m-%d %H:%M:%S"))  # pdb.set_trace()
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
-        for predictor in [RF,CART]:
-            for task in ["Tuned_","Naive_"]:  # "Naive_", "Tuned_",
+        for predictor in [RF, CART]:
+            for task in ["Tuned_", "Naive_","Cluster_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
@@ -192,6 +195,31 @@ def start(src, randomly=True, processor=10,
                         save_score(name, score, score_lst)
                 elif task == "Tuned_":
                     new_predictor = predictor()
+                    for _ in xrange(repeats):
+                        clf, threshold = DE_tuner(new_predictor,
+                                                  goal_index=tuning_goal.index(
+                                                      goal),
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_Y,
+                                                  file_name=file_name)
+                        # pdb.set_trace()
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
+                        predict_result = clf.predict(test_data_X)
+                        score = sk_abcd(predict_result, test_data_Y,
+                                        threshold=threshold)
+                        save_score(name, score, score_lst)
+                elif task == "Cluster_":
+                    new_predictor = predictor()
+                    # cluster_training_data_X = data_lst[3][0]
+                    # cluster_training_data_Y = data_lst[3][1]
+                    # new_train_data_X = cluster_training_data_X
+                    # new_train_data_Y = cluster_training_data_Y
+                    cluster_tuning_data_X = data_lst[3][0]
+                    cluster_tuning_data_Y = data_lst[3][1]
+                    new_tuning_data_X = cluster_tuning_data_X
+                    new_tuning_data_Y = cluster_tuning_data_Y # change the tuning data set to be the clustered on
                     for _ in xrange(repeats):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
