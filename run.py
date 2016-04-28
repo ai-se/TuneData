@@ -145,7 +145,6 @@ def start(src, goal, randomly=False, processor=10, repeats=5):
                              goal, tuple(tuning_goal)))
     file_name = create_file(goal)
     nextpath = [src][0]  ### this is for HPC
-    pdb.set_trace()
     file_name=create_file(nextpath[nextpath.rindex("/")+1:]+"_"+goal) ### this is for HPC
     which_is_better = {}
     for data_tpl in load_data(src):
