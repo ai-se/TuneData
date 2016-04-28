@@ -1,0 +1,12 @@
+GriSearch: False
+Tuning objective: precision
+Begin time: 2016-04-27 20:43:48
+Dataset: xercesV0
+------------------------------
+
+evaluation: 60
+final bestescore: 93
+final config:[15, 2, 27, 111, 0.91, 0.95]
+Tuned_RF Running Time: 12.587
+------------------------------
+

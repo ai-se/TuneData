@@ -57,7 +57,7 @@ def cluster_data(tune_path=None, test_path=None):
     big_db = DBSCAN(algorithm="kd_tree").fit(big_x)
     df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
     _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'], normalize=False)
-    print(len(_tune_x))
+    # print(len(_tune_x))
     return [_tune_x, _tune_y]
 
 

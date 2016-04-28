@@ -115,6 +115,7 @@ additional-builtins=
 ignore-mixin-members=yes
 ignored-modules = numpy
 
+
 # When zope mode is activated, consider the acquired-members option to ignore
 # access to some undefined attributes.
 zope=no
@@ -299,8 +300,13 @@ max-module-lines=1000
 
 # String used as indentation unit. This is usually " " (4 spaces) or "\t" (1
 # tab).
-indent-string='  '
+indent-string='    '
 
 
 [MESSAGES CONTROL]
 disable-msg=C0301,C0111,C0103,R0201,W0702,C0324
+
+
+
+[PANDAS]
+generated-members=pandas.*

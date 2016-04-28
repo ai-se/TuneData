@@ -7,6 +7,7 @@ def sk_abcd(pred_lst, actual_lst, threshold):
     """
     :param pred_lst: array_like, the predicted results
            actual_lst: array_like, the actual labels
+           threshold: to determine whether it is defective or not
     :return out: list of list, [[pd, pf,prec,f,g],[pd,pf,prec,f,g]]
                  the firs list contains scores for non-defective data,
                  the second list contains scores for defective data

@@ -59,21 +59,19 @@ def getScoring(goal):
     return scoring
 
 
-def load_data(path, num_dataset=3, class_col=23, cluster=False):
+def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
     def cov(data):
         # lst = ["Defective" if i > 0  else "Non-Defective" for i in data]
         return data
 
     def build(src):
         df = pd.read_csv(src, header=0)
-        train_Y = np.asarray(cov(df.ix[:, class_col].as_matrix()))
-        df = df._get_numeric_data()  # get numeric data
-        df = df.iloc[:, 1:21]  # get rid of version column
-        train_X = df.as_matrix()  # numpy array with numeric
+        df = df.iloc[:,data_start:]# get rid of version,id, names
+        train_Y = np.asarray(df.ix[:, class_col].as_matrix())
+        train_X = df.iloc[:,:class_col].as_matrix()  # numpy array with numeric
         return [train_X, train_Y]
-
     folders = [f for f in listdir(path) if not isfile(join(path, f))]
-    for folder in folders[:]:
+    for folder in folders[-1:]:
         nextpath = join(path, folder)
         # folder_name = nextpath[nextpath.rindex("/") + 1:]
         data = [join(nextpath, f) for f in listdir(nextpath) if
@@ -86,7 +84,7 @@ def load_data(path, num_dataset=3, class_col=23, cluster=False):
                     X.append(build(data[i + j]))
             except IndexError, e:
                 break
-            X.append(cluster_data(data[i+1], data[i + 2]))  ## quick and dirty work. do clustering. put the clustered tuning data at the end of this list
+            # X.append(cluster_data(data[i+1], data[i + 2]))  ## quick and dirty work. do clustering. put the clustered tuning data at the end of this list
             yield (folder + "V" + str(count), X)
             count += 1
 
@@ -164,7 +162,7 @@ def start(src, randomly=True, processor=10,
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
         for predictor in [RF, CART]:
-            for task in ["Tuned_", "Naive_","Cluster_"]:  # "Naive_", "Tuned_",
+            for task in ["Tuned_", "Naive_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
