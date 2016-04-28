@@ -15,12 +15,13 @@ from newtuner import *
 from sk import rdivDemo
 from sk import ksDemo
 from clustering import cluster_data
+from clustering import near_data
 
 
 def create_file(objective):
     home_path = getcwd()
     file_name = (home_path + '/result/' + strftime(
-        "%Y-%m-%d %H:%M:%S") + objective)
+        "%Y-%m-%d %H:%M:%S") + '_' +objective)
     f = open(file_name, 'w').close()
     return file_name
 
@@ -70,9 +71,11 @@ def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
         train_Y = np.asarray(df.ix[:, class_col].as_matrix())
         train_X = df.iloc[:,:class_col].as_matrix()  # numpy array with numeric
         return [train_X, train_Y]
-    folders = [f for f in listdir(path) if not isfile(join(path, f))]
-    for folder in folders[-1:]:
-        nextpath = join(path, folder)
+    # folders = [f for f in listdir(path) if not isfile(join(path, f))] ### this is for local machine
+    # for folder in folders[:1]: ### this is for  local machine
+    #     nextpath = join(path, folder) ### this is for local machine
+    for nextpath in [path]: ### this is for HPC
+        folder = nextpath[nextpath.rindex("/")+1:] ### this is for HPC
         # folder_name = nextpath[nextpath.rindex("/") + 1:]
         data = [join(nextpath, f) for f in listdir(nextpath) if
                 isfile(join(nextpath, f)) and ".DS" not in f]
@@ -84,7 +87,8 @@ def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
                     X.append(build(data[i + j]))
             except IndexError, e:
                 break
-            # X.append(cluster_data(data[i+1], data[i + 2]))  ## quick and dirty work. do clustering. put the clustered tuning data at the end of this list
+            X.append(cluster_data(data[i+1], data[i + 2]))  ##  put the clustered tuning data at the end of this list
+            X.append(near_data(data[i+1],data[i+2])) ##  put the nearest tuning data at the end of this list
             yield (folder + "V" + str(count), X)
             count += 1
 
@@ -133,14 +137,16 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
     print("\n")
 
 
-def start(src, randomly=True, processor=10,
-          goal="precision", repeats=1):
-    tuning_goal = ["pd", "pf", "precision", "f1", "g", "auc"]
+def start(src, goal, randomly=False, processor=10, repeats=5):
+    tuning_goal = ["pd", "pf", "prec", "f", "g", "auc"]
     if goal not in tuning_goal:
         raise ValueError("Tuning goal %s is not supported! only "
                          "these  %s are supported" % (
                              goal, tuple(tuning_goal)))
     file_name = create_file(goal)
+    nextpath = [src][0]  ### this is for HPC
+    pdb.set_trace()
+    file_name=create_file(nextpath[nextpath.rindex("/")+1:]+"_"+goal) ### this is for HPC
     which_is_better = {}
     for data_tpl in load_data(src):
         pd, pf, prec, F, g = {}, {}, {}, {}, {}
@@ -162,7 +168,7 @@ def start(src, randomly=True, processor=10,
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
         for predictor in [RF, CART]:
-            for task in ["Tuned_", "Naive_"]:  # "Naive_", "Tuned_",
+            for task in ["Tuned_","Cluster_","Cluster_","Nbrs_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
@@ -233,6 +239,31 @@ def start(src, randomly=True, processor=10,
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
                         save_score(name, score, score_lst)
+                elif task == "Nbrs_":
+                    new_predictor = predictor()
+                    # cluster_training_data_X = data_lst[3][0]
+                    # cluster_training_data_Y = data_lst[3][1]
+                    # new_train_data_X = cluster_training_data_X
+                    # new_train_data_Y = cluster_training_data_Y
+                    cluster_tuning_data_X = data_lst[4][0]
+                    cluster_tuning_data_Y = data_lst[4][1]
+                    new_tuning_data_X = cluster_tuning_data_X
+                    new_tuning_data_Y = cluster_tuning_data_Y # change the tuning data set to be the clustered on
+                    for _ in xrange(repeats):
+                        clf, threshold = DE_tuner(new_predictor,
+                                                  goal_index=tuning_goal.index(
+                                                      goal),
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_Y,
+                                                  file_name=file_name)
+                        # pdb.set_trace()
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
+                        predict_result = clf.predict(test_data_X)
+                        score = sk_abcd(predict_result, test_data_Y,
+                                        threshold=threshold)
+                        save_score(name, score, score_lst)
                 run_time = name + " Running Time: " + str(
                     round(time.time() - begin_time, 3) / repeats)
                 print(run_time)
@@ -274,7 +305,7 @@ def cmd(com="./data/ant"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        start("./data", False)
+        start("./data/ant", "prec")
     else:
         eval(cmd())
         # for i in ["precision", "f1", "auc"]:
