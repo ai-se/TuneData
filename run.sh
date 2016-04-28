@@ -21,6 +21,7 @@ rm err_new/*
 
 ##### this is only for testing on HPC, testing cluster data idea
 foreach goal (prec f)
-    bsub -W 1200 -o ./out_new/${goal}_${r}.out.%J -e ./err_new/${goal}_${r}.err.%J /share3/wfu/miniconda/bin/python2.7 run.py run $goal
+  foreach VAR ( ant camel ivy jedit log4j lucene poi synapse velocity xerces )
+    bsub -W 1200 -o ./out_new/${goal}_${r}.out.%J -e ./err_new/${goal}_${r}.err.%J /share3/wfu/miniconda/bin/python2.7 run.py start /share3/wfu/data/$VAR $goal
   end
 end
