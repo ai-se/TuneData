@@ -9,7 +9,7 @@ from os import listdir
 from os.path import join, isfile
 from time import strftime
 import time
-from mpi4py import MPI
+# from mpi4py import MPI
 from newlearner import *
 from newtuner import *
 from sk import rdivDemo
