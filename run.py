@@ -137,7 +137,7 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
     print("\n")
 
 
-def start(src, goal, randomly=False, processor=10, repeats=5):
+def start(src, goal, randomly=False, processor=10, repeats=10):
     tuning_goal = ["pd", "pf", "prec", "f", "g", "auc"]
     if goal not in tuning_goal:
         raise ValueError("Tuning goal %s is not supported! only "
