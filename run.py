@@ -137,13 +137,13 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
     print("\n")
 
 
-def start(src, goal, randomly=False, processor=10, repeats=10):
+def start(src, goal, randomly=False, processor=10, repeats=5):
     tuning_goal = ["pd", "pf", "prec", "f", "g", "auc"]
     if goal not in tuning_goal:
         raise ValueError("Tuning goal %s is not supported! only "
                          "these  %s are supported" % (
                              goal, tuple(tuning_goal)))
-    file_name = create_file(goal)
+    # file_name = create_file(goal)
     nextpath = [src][0]  ### this is for HPC
     file_name=create_file(nextpath[nextpath.rindex("/")+1:]+"_"+goal) ### this is for HPC
     which_is_better = {}
@@ -215,22 +215,16 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                         save_score(name, score, score_lst)
                 elif task == "Cluster_":
                     new_predictor = predictor()
-                    # cluster_training_data_X = data_lst[3][0]
-                    # cluster_training_data_Y = data_lst[3][1]
-                    # new_train_data_X = cluster_training_data_X
-                    # new_train_data_Y = cluster_training_data_Y
                     cluster_tuning_data_X = data_lst[3][0]
                     cluster_tuning_data_Y = data_lst[3][1]
-                    new_tuning_data_X = cluster_tuning_data_X
-                    new_tuning_data_Y = cluster_tuning_data_Y # change the tuning data set to be the clustered on
                     for _ in xrange(repeats):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
                                                   new_train_X=new_train_data_X,
                                                   new_train_Y=new_train_data_Y,
-                                                  new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_Y,
+                                                  new_test_X=cluster_tuning_data_X,
+                                                  new_test_Y=cluster_tuning_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
                         clf = clf.fit(new_train_data_X, new_train_data_Y)
@@ -240,22 +234,16 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                         save_score(name, score, score_lst)
                 elif task == "Nbrs_":
                     new_predictor = predictor()
-                    # cluster_training_data_X = data_lst[3][0]
-                    # cluster_training_data_Y = data_lst[3][1]
-                    # new_train_data_X = cluster_training_data_X
-                    # new_train_data_Y = cluster_training_data_Y
-                    cluster_tuning_data_X = data_lst[4][0]
-                    cluster_tuning_data_Y = data_lst[4][1]
-                    new_tuning_data_X = cluster_tuning_data_X
-                    new_tuning_data_Y = cluster_tuning_data_Y # change the tuning data set to be the clustered on
+                    Nbrs_tuning_data_X = data_lst[4][0]
+                    Nbrs_tuning_data_Y = data_lst[4][1]
                     for _ in xrange(repeats):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
                                                   new_train_X=new_train_data_X,
                                                   new_train_Y=new_train_data_Y,
-                                                  new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_Y,
+                                                  new_test_X=Nbrs_tuning_data_X,
+                                                  new_test_Y=Nbrs_tuning_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
                         clf = clf.fit(new_train_data_X, new_train_data_Y)
