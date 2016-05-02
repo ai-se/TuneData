@@ -110,9 +110,8 @@ class Read(object):
           # features chose by untuned where
           self.readfeatures(row, "Naive Features")
         elif "*****" in row:
-
           goal = row.strip('*')
-        elif "Y-Def" in row and goal == self.result['Tuning objective'][0]:
+        elif "Y-Def" in row and goal.strip() == self.result['Tuning objective'][0]:
           self.readgoal(row)
     return self.result
 
