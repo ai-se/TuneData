@@ -1,9 +1,0 @@
-GriSearch: False
-Tuning objective: f
-Begin time: 2016-04-29 15:32:41
-Dataset: luceneV0
-------------------------------
-
-evaluation: 60
-final bestescore: 74
-final config:[1, 7, 38, 121, 0.01, 0.43]

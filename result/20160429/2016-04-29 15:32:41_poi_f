@@ -1,9 +1,0 @@
-GriSearch: False
-Tuning objective: f
-Begin time: 2016-04-29 15:32:41
-Dataset: poiV0
-------------------------------
-
-evaluation: 90
-final bestescore: 28
-final config:[5, 2, 34, 103, 0.38, 1]

@@ -1,9 +1,0 @@
-GriSearch: False
-Tuning objective: f
-Begin time: 2016-04-29 15:32:42
-Dataset: synapseV0
-------------------------------
-
-evaluation: 70
-final bestescore: 51
-final config:[1, 12, 40, 75, 1, 0.11]
