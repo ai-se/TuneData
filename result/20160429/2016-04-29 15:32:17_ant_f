@@ -1,0 +1,12 @@
+GriSearch: False
+Tuning objective: f
+Begin time: 2016-04-29 15:32:17
+Dataset: antV0
+------------------------------
+
+evaluation: 60
+final bestescore: 39
+final config:[15, 2, 14, 104, 0.57, 0.01]
+evaluation: 70
+final bestescore: 39
+final config:[1, 2, 13, 137, 0.55, 0.01]

@@ -1,0 +1,9 @@
+GriSearch: False
+Tuning objective: f
+Begin time: 2016-04-29 15:32:42
+Dataset: xercesV0
+------------------------------
+
+evaluation: 60
+final bestescore: 43
+final config:[15, 2, 27, 111, 0.91, 0.95]

@@ -1,0 +1,12 @@
+GriSearch: False
+Tuning objective: prec
+Begin time: 2016-04-29 15:32:17
+Dataset: velocityV0
+------------------------------
+
+evaluation: 80
+final bestescore: 78
+final config:[3, 2, 30, 71, 0.08, 1]
+evaluation: 50
+final bestescore: 71
+final config:[19, 15, 32, 86, 0.41, 0.94]

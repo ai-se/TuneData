@@ -1,0 +1,12 @@
+GriSearch: False
+Tuning objective: f
+Begin time: 2016-04-29 15:32:17
+Dataset: log4jV0
+------------------------------
+
+evaluation: 70
+final bestescore: 73
+final config:[15, 2, 16, 119, 0.24, 0.46]
+evaluation: 70
+final bestescore: 74
+final config:[10, 2, 22, 145, 0.37, 0.5]
