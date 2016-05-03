@@ -138,7 +138,7 @@ def printResult(dataname, which_is_better, lst, file_name, goal_index):
     print("\n")
 
 
-def start(src, goal, randomly=False, processor=10, repeats=10):
+def start(src, goal, randomly=False, processor=10, repeats=20):
     tuning_goal = ["pd", "pf", "prec", "f", "g", "auc"]
     if goal not in tuning_goal:
         raise ValueError("Tuning goal %s is not supported! only "
@@ -225,7 +225,7 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                                                   new_train_X=data_lst[3][0],
                                                   new_train_Y=data_lst[3][1],
                                                   new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
                         clf = clf.fit(data_lst[3][0], data_lst[3][1])
@@ -244,7 +244,7 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                                                   new_train_X=data_lst[4][0],
                                                   new_train_Y=data_lst[4][1],
                                                   new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
                         clf = clf.fit(data_lst[4][0], data_lst[4][1])
