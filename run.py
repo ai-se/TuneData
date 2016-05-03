@@ -21,7 +21,7 @@ from clustering import near_data
 def create_file(objective):
     home_path = getcwd()
     file_name = (home_path + '/result/' + strftime(
-        "%Y-%m-%d %H:%M:%S") + '_' +objective)
+        "%Y-%m-%d %H:%M:%S") + '_' + objective)
     f = open(file_name, 'w').close()
     return file_name
 
@@ -67,15 +67,16 @@ def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
 
     def build(src):
         df = pd.read_csv(src, header=0)
-        df = df.iloc[:,data_start:]# get rid of version,id, names
+        df = df.iloc[:, data_start:]  # get rid of version,id, names
         train_Y = np.asarray(df.ix[:, class_col].as_matrix())
-        train_X = df.iloc[:,:class_col].as_matrix()  # numpy array with numeric
+        train_X = df.iloc[:, :class_col].as_matrix()  # numpy array with numeric
         return [train_X, train_Y]
+
     # folders = [f for f in listdir(path) if not isfile(join(path, f))] ### this is for local machine
     # for folder in folders[:1]: ### this is for  local machine
     #     nextpath = join(path, folder) ### this is for local machine
-    for nextpath in [path]: ### this is for HPC
-        folder = nextpath[nextpath.rindex("/")+1:] ### this is for HPC
+    for nextpath in [path]:  ### this is for HPC
+        folder = nextpath[nextpath.rindex("/") + 1:]  ### this is for HPC
         # folder_name = nextpath[nextpath.rindex("/") + 1:]
         data = [join(nextpath, f) for f in listdir(nextpath) if
                 isfile(join(nextpath, f)) and ".DS" not in f]
@@ -87,8 +88,8 @@ def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
                     X.append(build(data[i + j]))
             except IndexError, e:
                 break
-            X.append(cluster_data(data[i+1], data[i + 2]))  ##  put the clustered tuning data at the end of this list
-            X.append(near_data(data[i+1],data[i+2])) ##  put the nearest tuning data at the end of this list
+            X.append(cluster_data(data[i], data[i + 2]))  ##  put the clustered tuning data at the end of this list
+            X.append(near_data(data[i], data[i + 2]))  ##  put the nearest tuning data at the end of this list
             yield (folder + "V" + str(count), X)
             count += 1
 
@@ -145,7 +146,7 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                              goal, tuple(tuning_goal)))
     # file_name = create_file(goal)
     nextpath = [src][0]  ### this is for HPC
-    file_name=create_file(nextpath[nextpath.rindex("/")+1:]+"_"+goal) ### this is for HPC
+    file_name = create_file(nextpath[nextpath.rindex("/") + 1:] + "_" + goal)  ### this is for HPC
     which_is_better = {}
     for data_tpl in load_data(src):
         pd, pf, prec, F, g = {}, {}, {}, {}, {}
@@ -167,7 +168,7 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
         for predictor in [RF, CART]:
-            for task in ["Tuned_","Naive_","Cluster_","Nbrs_"]:  # "Naive_", "Tuned_",
+            for task in ["Tuned_", "Naive_", "Cluster_", "Nbrs_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
@@ -221,13 +222,13 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
-                                                  new_train_X=new_train_data_X,
-                                                  new_train_Y=new_train_data_Y,
-                                                  new_test_X=cluster_tuning_data_X,
-                                                  new_test_Y=cluster_tuning_data_Y,
+                                                  new_train_X=data_lst[3][0],
+                                                  new_train_Y=data_lst[3][1],
+                                                  new_test_X=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_X,
                                                   file_name=file_name)
                         # pdb.set_trace()
-                        clf = clf.fit(new_train_data_X, new_train_data_Y)
+                        clf = clf.fit(data_lst[3][0], data_lst[3][1])
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
@@ -240,13 +241,13 @@ def start(src, goal, randomly=False, processor=10, repeats=10):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
-                                                  new_train_X=new_train_data_X,
-                                                  new_train_Y=new_train_data_Y,
-                                                  new_test_X=Nbrs_tuning_data_X,
-                                                  new_test_Y=Nbrs_tuning_data_Y,
+                                                  new_train_X=data_lst[4][0],
+                                                  new_train_Y=data_lst[4][1],
+                                                  new_test_X=new_tuning_data_X,
+                                                  new_test_Y=new_tuning_data_X,
                                                   file_name=file_name)
                         # pdb.set_trace()
-                        clf = clf.fit(new_train_data_X, new_train_data_Y)
+                        clf = clf.fit(data_lst[4][0], data_lst[4][1])
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
