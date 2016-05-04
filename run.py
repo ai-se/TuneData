@@ -222,13 +222,13 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
-                                                  new_train_X=data_lst[3][0],
-                                                  new_train_Y=data_lst[3][1],
-                                                  new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_Y,
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=test_data_X,
+                                                  new_test_Y=test_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
-                        clf = clf.fit(data_lst[3][0], data_lst[3][1])
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
@@ -241,13 +241,13 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
-                                                  new_train_X=data_lst[4][0],
-                                                  new_train_Y=data_lst[4][1],
-                                                  new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_Y,
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=test_data_X,
+                                                  new_test_Y=test_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
-                        clf = clf.fit(data_lst[4][0], data_lst[4][1])
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
