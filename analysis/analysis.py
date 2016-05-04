@@ -102,7 +102,7 @@ def tune_over_naive(path):
   for learner in ["CART","RF"]:
     res = {}
     naive = None
-    for task in ["Naive_", "Tuned_", "Grid_"]:
+    for task in ["Naive_", "Tuned_", "Cluster_","Nbrs_"]:
       name = task + learner
       if task == "Naive_":
         naive = name
@@ -126,9 +126,9 @@ def show_plots(data_lst, goal_lst=["F", "F"]):
     data_dict = data_lst[kk]
     goal = goal_lst[kk]
     plt.subplot(2, 1, kk + 1)
-    color = {'Grid': 'r', 'Naive': 'g', 'Tuned': 'b'}
+    color = {'Cluster': 'r', 'Naive': 'g', 'Tuned': 'b','Nbrs':'k'}
     find_y_max = 0
-    for order in ['Naive', 'Grid', 'Tuned']:
+    for order in ['Naive', 'Cluster_','Nbrs_', 'Tuned']:
       key = [i for i in data_dict.keys() if order in i][0]
       val = data_dict[key]
       this_label = key
@@ -151,8 +151,8 @@ def show_plots(data_lst, goal_lst=["F", "F"]):
     plt.ylim((0,find_y_max+3))
     plt.xlim(1,17)
   plt.xlabel("Data sets, sorted by results using default tunings.", fontsize="small")
-  plt.gcf().set_size_inches(w=4, h=4, forward=True)
-  plt.savefig(goal_lst[0]+'.png', pad_inches=0)
+  # plt.gcf().set_size_inches(w=4, h=4, forward=True)
+  plt.savefig(goal_lst[0]+'.pdf', pad_inches=0)
   plt.tight_layout()
   plt.show()
 
@@ -188,7 +188,7 @@ if __name__ == "__main__":
   # F.csv_rx4("F")
 
   ################## plot Naive, Grid, Tuned plots over different data sets ##################
-  goal_results_dict = combine("../result/20160321")
+  goal_results_dict = combine("../result/20160502")
   for goal, src in goal_results_dict.iteritems():
     result_lst = tune_over_naive(src)
     show_plots(result_lst,[goal,goal])
