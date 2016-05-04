@@ -1,0 +1,453 @@
+GriSearch: False
+Tuning objective: prec
+Begin time: 2016-05-03 22:42:52
+Dataset: log4jV0
+------------------------------
+
+evaluation: 60
+final bestescore: 90
+final config:[16, 12, 34, 110, 1, 0.86]
+evaluation: 50
+final bestescore: 100
+final config:[12, 19, 35, 74, 0.07, 0.94]
+evaluation: 70
+final bestescore: 100
+final config:[17, 14, 34, 103, 1, 1]
+evaluation: 50
+final bestescore: 100
+final config:[4, 15, 32, 129, 0.07, 0.93]
+evaluation: 70
+final bestescore: 100
+final config:[6, 20, 21, 135, 0.02, 0.78]
+evaluation: 70
+final bestescore: 100
+final config:[15, 20, 13, 78, 0.23, 0.97]
+evaluation: 80
+final bestescore: 100
+final config:[10, 17, 23, 95, 0.14, 1]
+evaluation: 100
+final bestescore: 100
+final config:[7, 16, 27, 50, 1, 0.85]
+evaluation: 90
+final bestescore: 100
+final config:[12, 10, 45, 55, 0.01, 1]
+evaluation: 60
+final bestescore: 100
+final config:[9, 17, 31, 102, 0.01, 0.98]
+evaluation: 60
+final bestescore: 94
+final config:[18, 19, 13, 135, 0.01, 0.75]
+evaluation: 80
+final bestescore: 100
+final config:[6, 8, 37, 119, 0.01, 1]
+evaluation: 80
+final bestescore: 100
+final config:[17, 18, 49, 50, 0.01, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[9, 9, 17, 133, 0.06, 0.98]
+evaluation: 90
+final bestescore: 93
+final config:[18, 2, 50, 50, 0.01, 1]
+evaluation: 70
+final bestescore: 100
+final config:[20, 20, 28, 60, 0.16, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[20, 18, 21, 56, 0.29, 1]
+evaluation: 60
+final bestescore: 100
+final config:[3, 20, 10, 119, 0.47, 1]
+evaluation: 60
+final bestescore: 100
+final config:[2, 18, 30, 104, 0.01, 1]
+evaluation: 90
+final bestescore: 100
+final config:[13, 20, 21, 127, 0.38, 1]
+Tuned_RF Running Time: 20.20105
+------------------------------
+
+Naive_RF Running Time: 0.3316
+------------------------------
+
+evaluation: 60
+final bestescore: 100
+final config:[16, 12, 34, 110, 1, 0.86]
+evaluation: 50
+final bestescore: 100
+final config:[12, 19, 35, 74, 0.07, 0.94]
+evaluation: 60
+final bestescore: 100
+final config:[7, 7, 16, 150, 0.83, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[14, 7, 39, 53, 0.51, 1]
+evaluation: 60
+final bestescore: 100
+final config:[6, 17, 21, 135, 0.02, 0.78]
+evaluation: 60
+final bestescore: 100
+final config:[2, 4, 37, 57, 0.07, 0.84]
+evaluation: 60
+final bestescore: 100
+final config:[2, 12, 42, 94, 0.37, 1]
+evaluation: 50
+final bestescore: 100
+final config:[1, 4, 20, 112, 0.02, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[18, 11, 28, 83, 0.98, 0.97]
+evaluation: 60
+final bestescore: 100
+final config:[15, 6, 12, 147, 0.76, 0.94]
+evaluation: 60
+final bestescore: 100
+final config:[12, 20, 34, 146, 0.24, 0.94]
+evaluation: 60
+final bestescore: 100
+final config:[5, 17, 20, 66, 0.01, 0.8]
+evaluation: 50
+final bestescore: 98
+final config:[15, 5, 25, 119, 0.36, 0.6]
+evaluation: 50
+final bestescore: 100
+final config:[19, 10, 19, 110, 0.18, 0.94]
+evaluation: 50
+final bestescore: 100
+final config:[16, 3, 12, 52, 0.11, 0.96]
+evaluation: 50
+final bestescore: 100
+final config:[8, 9, 29, 55, 0.79, 0.99]
+evaluation: 50
+final bestescore: 100
+final config:[7, 19, 24, 72, 0.33, 0.93]
+evaluation: 60
+final bestescore: 100
+final config:[19, 20, 25, 133, 0.09, 0.81]
+evaluation: 50
+final bestescore: 100
+final config:[17, 19, 11, 126, 0.24, 0.96]
+evaluation: 50
+final bestescore: 100
+final config:[19, 8, 19, 62, 0.07, 0.89]
+Cluster_RF Running Time: 17.1919
+------------------------------
+
+evaluation: 60
+final bestescore: 100
+final config:[16, 12, 34, 110, 1, 0.86]
+evaluation: 50
+final bestescore: 100
+final config:[12, 19, 35, 74, 0.07, 0.94]
+evaluation: 60
+final bestescore: 100
+final config:[7, 7, 16, 150, 0.83, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[14, 7, 39, 53, 0.51, 1]
+evaluation: 60
+final bestescore: 100
+final config:[6, 17, 21, 135, 0.02, 0.78]
+evaluation: 60
+final bestescore: 100
+final config:[2, 4, 37, 57, 0.07, 0.84]
+evaluation: 60
+final bestescore: 100
+final config:[2, 12, 42, 94, 0.37, 1]
+evaluation: 50
+final bestescore: 100
+final config:[1, 4, 20, 112, 0.02, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[18, 11, 28, 83, 0.98, 0.97]
+evaluation: 60
+final bestescore: 100
+final config:[15, 6, 12, 147, 0.76, 0.94]
+evaluation: 60
+final bestescore: 100
+final config:[12, 20, 34, 146, 0.24, 0.94]
+evaluation: 60
+final bestescore: 100
+final config:[5, 17, 20, 66, 0.01, 0.8]
+evaluation: 50
+final bestescore: 98
+final config:[15, 5, 25, 119, 0.36, 0.6]
+evaluation: 50
+final bestescore: 100
+final config:[19, 10, 19, 110, 0.18, 0.94]
+evaluation: 50
+final bestescore: 100
+final config:[16, 3, 12, 52, 0.11, 0.96]
+evaluation: 50
+final bestescore: 100
+final config:[8, 9, 29, 55, 0.79, 0.99]
+evaluation: 50
+final bestescore: 100
+final config:[7, 19, 24, 72, 0.33, 0.93]
+evaluation: 60
+final bestescore: 100
+final config:[19, 20, 25, 133, 0.09, 0.81]
+evaluation: 50
+final bestescore: 100
+final config:[17, 19, 11, 126, 0.24, 0.96]
+evaluation: 50
+final bestescore: 100
+final config:[19, 8, 19, 62, 0.07, 0.89]
+Nbrs_RF Running Time: 17.0457
+------------------------------
+
+evaluation: 50
+final bestescore: 95
+final config:[0.71, 46, 9, 16, 0.67]
+evaluation: 60
+final bestescore: 95
+final config:[0.68, 50, 14, 12, 0.8]
+evaluation: 50
+final bestescore: 95
+final config:[0.61, 43, 9, 13, 0.62]
+evaluation: 50
+final bestescore: 95
+final config:[0.89, 12, 9, 14, 0.93]
+evaluation: 50
+final bestescore: 95
+final config:[0.94, 17, 8, 12, 0.66]
+evaluation: 60
+final bestescore: 100
+final config:[0.42, 1, 10, 1, 0.74]
+evaluation: 70
+final bestescore: 100
+final config:[0.8, 1, 4, 1, 0.4]
+evaluation: 50
+final bestescore: 93
+final config:[0.12, 3, 13, 6, 0.99]
+evaluation: 60
+final bestescore: 90
+final config:[0.01, 3, 9, 2, 0.94]
+evaluation: 50
+final bestescore: 95
+final config:[0.99, 40, 6, 16, 0.71]
+evaluation: 50
+final bestescore: 95
+final config:[0.72, 24, 18, 16, 0.73]
+evaluation: 60
+final bestescore: 95
+final config:[0.85, 43, 16, 15, 0.98]
+evaluation: 70
+final bestescore: 100
+final config:[0.93, 1, 15, 1, 0.62]
+evaluation: 50
+final bestescore: 95
+final config:[0.97, 1, 9, 17, 0.59]
+evaluation: 60
+final bestescore: 95
+final config:[0.88, 33, 9, 12, 0.85]
+evaluation: 60
+final bestescore: 100
+final config:[0.7, 1, 9, 1, 0.72]
+evaluation: 60
+final bestescore: 100
+final config:[0.45, 1, 4, 2, 0.51]
+evaluation: 70
+final bestescore: 100
+final config:[0.84, 1, 8, 1, 1]
+evaluation: 50
+final bestescore: 95
+final config:[0.11, 35, 10, 5, 0.8]
+evaluation: 50
+final bestescore: 95
+final config:[0.77, 33, 17, 18, 0.76]
+Tuned_CART Running Time: 0.0698
+------------------------------
+
+Naive_CART Running Time: 0.0027
+------------------------------
+
+evaluation: 60
+final bestescore: 100
+final config:[1, 32, 16, 2, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[0.24, 23, 5, 6, 0.87]
+evaluation: 60
+final bestescore: 100
+final config:[0.7, 1, 11, 2, 0.68]
+evaluation: 60
+final bestescore: 98
+final config:[0.51, 13, 5, 7, 0.81]
+evaluation: 50
+final bestescore: 100
+final config:[0.57, 6, 14, 12, 0.64]
+evaluation: 50
+final bestescore: 100
+final config:[0.76, 3, 16, 9, 0.69]
+evaluation: 50
+final bestescore: 100
+final config:[0.89, 37, 8, 9, 0.57]
+evaluation: 50
+final bestescore: 100
+final config:[0.66, 43, 5, 7, 0.87]
+evaluation: 50
+final bestescore: 100
+final config:[0.85, 23, 15, 9, 0.45]
+evaluation: 50
+final bestescore: 100
+final config:[0.25, 46, 11, 11, 0.51]
+evaluation: 50
+final bestescore: 100
+final config:[0.9, 9, 12, 2, 0.86]
+evaluation: 60
+final bestescore: 100
+final config:[0.65, 41, 13, 1, 0.3]
+evaluation: 50
+final bestescore: 100
+final config:[0.37, 2, 19, 9, 0.38]
+evaluation: 50
+final bestescore: 100
+final config:[0.13, 3, 14, 10, 0.63]
+evaluation: 50
+final bestescore: 100
+final config:[0.14, 27, 12, 10, 0.55]
+evaluation: 50
+final bestescore: 100
+final config:[0.05, 28, 7, 10, 0.68]
+evaluation: 50
+final bestescore: 100
+final config:[0.92, 1, 10, 6, 0.83]
+evaluation: 50
+final bestescore: 100
+final config:[0.92, 46, 3, 8, 0.9]
+evaluation: 50
+final bestescore: 100
+final config:[0.93, 27, 5, 9, 0.55]
+evaluation: 50
+final bestescore: 100
+final config:[0.33, 21, 19, 10, 0.71]
+Cluster_CART Running Time: 0.0911
+------------------------------
+
+evaluation: 60
+final bestescore: 100
+final config:[1, 32, 16, 2, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[0.24, 23, 5, 6, 0.87]
+evaluation: 60
+final bestescore: 100
+final config:[0.7, 1, 11, 2, 0.68]
+evaluation: 60
+final bestescore: 98
+final config:[0.51, 13, 5, 7, 0.81]
+evaluation: 50
+final bestescore: 100
+final config:[0.57, 6, 14, 12, 0.64]
+evaluation: 50
+final bestescore: 100
+final config:[0.76, 3, 16, 9, 0.69]
+evaluation: 50
+final bestescore: 100
+final config:[0.89, 37, 8, 9, 0.57]
+evaluation: 50
+final bestescore: 100
+final config:[0.66, 43, 5, 7, 0.87]
+evaluation: 50
+final bestescore: 100
+final config:[0.85, 23, 15, 9, 0.45]
+evaluation: 50
+final bestescore: 100
+final config:[0.25, 46, 11, 11, 0.51]
+evaluation: 50
+final bestescore: 100
+final config:[0.9, 9, 12, 2, 0.86]
+evaluation: 60
+final bestescore: 100
+final config:[0.65, 41, 13, 1, 0.3]
+evaluation: 50
+final bestescore: 100
+final config:[0.37, 2, 19, 9, 0.38]
+evaluation: 50
+final bestescore: 100
+final config:[0.13, 3, 14, 10, 0.63]
+evaluation: 50
+final bestescore: 100
+final config:[0.14, 27, 12, 10, 0.55]
+evaluation: 50
+final bestescore: 100
+final config:[0.05, 28, 7, 10, 0.68]
+evaluation: 50
+final bestescore: 100
+final config:[0.92, 1, 10, 6, 0.83]
+evaluation: 50
+final bestescore: 100
+final config:[0.92, 46, 3, 8, 0.9]
+evaluation: 50
+final bestescore: 100
+final config:[0.93, 27, 5, 9, 0.55]
+evaluation: 50
+final bestescore: 100
+final config:[0.33, 21, 19, 10, 0.71]
+Nbrs_CART Running Time: 0.089
+
+********** pd **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,      Tuned_RF: Y-Def ,      13  ,     9 (  ---   * --   |              ), 0.03,  0.08,  0.13,  0.16,  0.19
+   2 ,    Cluster_RF: Y-Def ,      21  ,     6 (       ------ *|-             ), 0.11,  0.20,  0.21,  0.23,  0.25
+   2 ,       Nbrs_RF: Y-Def ,      21  ,     6 (       ------ *|-             ), 0.11,  0.20,  0.21,  0.23,  0.25
+   2 ,    Tuned_CART: Y-Def ,      22  ,    19 (-------       *|              ), 0.00,  0.11,  0.22,  0.22,  0.22
+   3 ,  Cluster_CART: Y-Def ,      25  ,    12 (        ------ | * ------     ), 0.13,  0.21,  0.25,  0.29,  0.37
+   3 ,     Nbrs_CART: Y-Def ,      25  ,    12 (        ------ | * ------     ), 0.13,  0.21,  0.25,  0.29,  0.37
+   4 ,    Naive_CART: Y-Def ,      37  ,     0 (               |         *    ), 0.37,  0.37,  0.37,  0.37,  0.37
+   5 ,      Naive_RF: Y-Def ,      44  ,     0 (               |             *), 0.44,  0.44,  0.44,  0.44,  0.44
+
+********** pf **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    Cluster_RF: Y-Def ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,       Nbrs_RF: Y-Def ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,      Tuned_RF: Y-Def ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,  Cluster_CART: Y-Def ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,     Nbrs_CART: Y-Def ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   2 ,    Tuned_CART: Y-Def ,       6  ,     6 (       *       |              ), 0.00,  0.00,  0.06,  0.06,  0.06
+   3 ,    Naive_CART: Y-Def ,      18  ,     0 (               |     *        ), 0.18,  0.18,  0.18,  0.18,  0.18
+   4 ,      Naive_RF: Y-Def ,      25  ,     0 (               |             *), 0.25,  0.25,  0.25,  0.25,  0.25
+
+********** prec **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    Naive_CART: Y-Def ,      95  ,     0 (*              |              ), 0.95,  0.95,  0.95,  0.95,  0.95
+   1 ,      Naive_RF: Y-Def ,      95  ,     0 (*              |              ), 0.95,  0.95,  0.95,  0.95,  0.95
+   2 ,    Tuned_CART: Y-Def ,      97  ,     3 (           *   |              ), 0.97,  0.97,  0.97,  1.00,  1.00
+   3 ,    Cluster_RF: Y-Def ,     100  ,     0 (               |             *), 1.00,  1.00,  1.00,  1.00,  1.00
+   3 ,       Nbrs_RF: Y-Def ,     100  ,     0 (               |             *), 1.00,  1.00,  1.00,  1.00,  1.00
+   3 ,      Tuned_RF: Y-Def ,     100  ,     0 (               |             *), 1.00,  1.00,  1.00,  1.00,  1.00
+   3 ,  Cluster_CART: Y-Def ,     100  ,     0 (               |             *), 1.00,  1.00,  1.00,  1.00,  1.00
+   3 ,     Nbrs_CART: Y-Def ,     100  ,     0 (               |             *), 1.00,  1.00,  1.00,  1.00,  1.00
+
+********** f **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,      Tuned_RF: Y-Def ,      23  ,    13 (   ----    * --|              ), 0.07,  0.15,  0.23,  0.28,  0.32
+   2 ,    Cluster_RF: Y-Def ,      35  ,     8 (         ------| *--          ), 0.20,  0.34,  0.35,  0.38,  0.41
+   2 ,       Nbrs_RF: Y-Def ,      35  ,     8 (         ------| *--          ), 0.20,  0.34,  0.35,  0.38,  0.41
+   2 ,    Tuned_CART: Y-Def ,      36  ,    29 (---------      | *            ), 0.01,  0.20,  0.36,  0.36,  0.36
+   3 ,  Cluster_CART: Y-Def ,      40  ,    16 (           ----|   *  ----    ), 0.23,  0.34,  0.40,  0.45,  0.54
+   3 ,     Nbrs_CART: Y-Def ,      40  ,    16 (           ----|   *  ----    ), 0.23,  0.34,  0.40,  0.45,  0.54
+   4 ,    Naive_CART: Y-Def ,      53  ,     0 (               |          *   ), 0.53,  0.53,  0.53,  0.53,  0.53
+   5 ,      Naive_RF: Y-Def ,      60  ,     0 (               |             *), 0.60,  0.60,  0.60,  0.60,  0.60
+
+********** g **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,      Tuned_RF: Y-Def ,      23  ,    13 (   ----    * --|              ), 0.07,  0.15,  0.23,  0.28,  0.32
+   2 ,    Cluster_RF: Y-Def ,      35  ,     8 (         ------| *--          ), 0.20,  0.34,  0.35,  0.38,  0.41
+   2 ,       Nbrs_RF: Y-Def ,      35  ,     8 (         ------| *--          ), 0.20,  0.34,  0.35,  0.38,  0.41
+   2 ,    Tuned_CART: Y-Def ,      36  ,    29 (---------      | *            ), 0.01,  0.20,  0.36,  0.36,  0.36
+   3 ,  Cluster_CART: Y-Def ,      40  ,    16 (           ----|   *  ----    ), 0.23,  0.34,  0.40,  0.45,  0.54
+   3 ,     Nbrs_CART: Y-Def ,      40  ,    16 (           ----|   *  ----    ), 0.23,  0.34,  0.40,  0.45,  0.54
+   4 ,    Naive_CART: Y-Def ,      51  ,     0 (               |         *    ), 0.51,  0.51,  0.51,  0.51,  0.51
+   5 ,      Naive_RF: Y-Def ,      55  ,     0 (               |           *  ), 0.55,  0.55,  0.55,  0.55,  0.55
+
+ In terms of 2 : the times of better tuners are{}
+End time :2016-05-03 23:01:18
+
+
