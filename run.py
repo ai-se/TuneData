@@ -168,7 +168,7 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
         for predictor in [RF, CART]:
-            for task in ["Tuned_", "Naive_", "Cluster_", "Nbrs_"]:  # "Naive_", "Tuned_",
+            for task in ["Naive_","NaiveTest_","Tuned_",  "Cluster_", "Nbrs_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
@@ -177,6 +177,14 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                     for _ in xrange(repeats):
                         clf = predictor().default()
                         clf.fit(train_data_X, train_data_Y)
+                        predict_result = clf.predict(test_data_X)
+                        score = sk_abcd(predict_result, test_data_Y,
+                                        0.5)
+                        save_score(name, score, score_lst)
+                if task == "NaiveTest_":
+                    for _ in xrange(repeats):
+                        clf = predictor().default()
+                        clf.fit(test_data_X, test_data_Y)
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         0.5)
@@ -293,7 +301,7 @@ def cmd(com="./data/ant"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        start("./data/ant", "prec")
+        start("./data/ivy", "prec")
     else:
         eval(cmd())
         # for i in ["precision", "f1", "auc"]:
