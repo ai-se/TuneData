@@ -102,7 +102,7 @@ def tune_over_naive(path):
   for learner in ["CART","RF"]:
     res = {}
     naive = None
-    for task in ["Naive_", "Tuned_", "Cluster_","Nbrs_"]:
+    for task in ["Naive_", "Tuned_", "Cluster_","Nbrs_","NaiveTest_"]:
       name = task + learner
       if task == "Naive_":
         naive = name
@@ -126,10 +126,10 @@ def show_plots(data_lst, goal_lst=["F", "F"]):
     data_dict = data_lst[kk]
     goal = goal_lst[kk]
     plt.subplot(2, 1, kk + 1)
-    color = {'Cluster': 'r', 'Naive': 'g', 'Tuned': 'b','Nbrs':'k'}
+    color = {'Cluster': 'r', 'Naive': 'g', 'Tuned': 'b','Nbrs':'k','NaiveTest':'y'}
     find_y_max = 0
-    for order in ['Naive', 'Cluster_','Nbrs_', 'Tuned']:
-      key = [i for i in data_dict.keys() if order in i][0]
+    for order in ['Naive', 'Cluster','Nbrs', 'Tuned', 'NaiveTest']:
+      key = [i for i in data_dict.keys() if order == i[:i.index("_")]][0]
       val = data_dict[key]
       this_label = key
       if order == "Naive":
@@ -188,7 +188,7 @@ if __name__ == "__main__":
   # F.csv_rx4("F")
 
   ################## plot Naive, Grid, Tuned plots over different data sets ##################
-  goal_results_dict = combine("../result/20160502")
+  goal_results_dict = combine("../result/20160506_ideal_TestNaiveLearner")
   for goal, src in goal_results_dict.iteritems():
     result_lst = tune_over_naive(src)
     show_plots(result_lst,[goal,goal])
