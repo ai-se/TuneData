@@ -232,8 +232,8 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                                                       goal),
                                                   new_train_X=test_data_X,
                                                   new_train_Y=test_data_Y,
-                                                  new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_Y,
+                                                  new_test_X=test_data_X,
+                                                  new_test_Y=test_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
                         clf = clf.fit(test_data_X, test_data_Y)
@@ -251,8 +251,8 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                                                       goal),
                                                   new_train_X=test_data_X,
                                                   new_train_Y=test_data_Y,
-                                                  new_test_X=new_tuning_data_X,
-                                                  new_test_Y=new_tuning_data_Y,
+                                                  new_test_X=test_data_X,
+                                                  new_test_Y=test_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
                         clf = clf.fit(test_data_X, test_data_Y)
