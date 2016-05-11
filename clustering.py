@@ -79,13 +79,14 @@ def near_data(tune_path=None, test_path=None):
     test_x, test_y = get_xy(df_test, normalize=True)
     nbrs = NearestNeighbors(n_neighbors=1).fit(tune_x)
     distance, indices = nbrs.kneighbors(test_x)
+    indices = np.hstack(indices)
     unique_index = np.unique(indices)
     normal_tune_x, normal_tune_y = get_xy(df_tune,normalize=False) # get the original data, without normalization.
-    _tune_x, _tune_y = normal_tune_x[unique_index], normal_tune_y[unique_index]
+    _tune_x, _tune_y = normal_tune_x[indices], normal_tune_y[indices]
     # print(len(_tune_x))
     return [_tune_x, _tune_y]
 
-def kmean_data(tune_path=None, test_path=None,cluster=3):
+def kmean_data(tune_path=None, test_path=None,cluster=5):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
@@ -118,6 +119,6 @@ def kmean_data(tune_path=None, test_path=None,cluster=3):
 
 
 if __name__ == "__main__":
-    # near_data()
+    near_data()
     # cluster_data()
-    kmean_data()
+    # kmean_data()
