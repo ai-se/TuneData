@@ -16,6 +16,7 @@ from sk import rdivDemo
 from sk import ksDemo
 from clustering import cluster_data
 from clustering import near_data
+from clustering import kmean_data
 
 
 def create_file(objective):
@@ -90,6 +91,7 @@ def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
                 break
             X.append(cluster_data(data[i], data[i + 2]))  ##  put the clustered tuning data at the end of this list
             X.append(near_data(data[i], data[i + 2]))  ##  put the nearest tuning data at the end of this list
+            X.append(kmean_data(data[i], data[i + 2]))  ## Kmeans, clustering data
             yield (folder + "V" + str(count), X)
             count += 1
 
@@ -168,7 +170,8 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
         for predictor in [RF, CART]:
-            for task in ["Naive_","NaiveTest_","Tuned_",  "Cluster_", "Nbrs_"]:  # "Naive_", "Tuned_",
+            for task in ["Naive_","Tuned_",  "Cluster_", "Nbrs_","Kmeans_"]:  # "Naive_", "Tuned_",
+            # for task in ["Naive_","Tuned_", "Nbrs_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()
@@ -230,13 +233,13 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
-                                                  new_train_X=test_data_X,
-                                                  new_train_Y=test_data_Y,
-                                                  new_test_X=test_data_X,
-                                                  new_test_Y=test_data_Y,
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=cluster_tuning_data_X,
+                                                  new_test_Y=cluster_tuning_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
-                        clf = clf.fit(test_data_X, test_data_Y)
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
@@ -249,13 +252,32 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
                         clf, threshold = DE_tuner(new_predictor,
                                                   goal_index=tuning_goal.index(
                                                       goal),
-                                                  new_train_X=test_data_X,
-                                                  new_train_Y=test_data_Y,
-                                                  new_test_X=test_data_X,
-                                                  new_test_Y=test_data_Y,
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=Nbrs_tuning_data_X,
+                                                  new_test_Y=Nbrs_tuning_data_Y,
                                                   file_name=file_name)
                         # pdb.set_trace()
-                        clf = clf.fit(test_data_X, test_data_Y)
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
+                        predict_result = clf.predict(test_data_X)
+                        score = sk_abcd(predict_result, test_data_Y,
+                                        threshold=threshold)
+                        save_score(name, score, score_lst)
+                elif task == "Kmeans_":
+                    new_predictor = predictor()
+                    Kmean_tuning_data_X = data_lst[5][0]
+                    Kmean_tuning_data_Y = data_lst[5][1]
+                    for _ in xrange(repeats):
+                        clf, threshold = DE_tuner(new_predictor,
+                                                  goal_index=tuning_goal.index(
+                                                      goal),
+                                                  new_train_X=new_train_data_X,
+                                                  new_train_Y=new_train_data_Y,
+                                                  new_test_X=Kmean_tuning_data_X,
+                                                  new_test_Y=Kmean_tuning_data_Y,
+                                                  file_name=file_name)
+                        # pdb.set_trace()
+                        clf = clf.fit(new_train_data_X, new_train_data_Y)
                         predict_result = clf.predict(test_data_X)
                         score = sk_abcd(predict_result, test_data_Y,
                                         threshold=threshold)
@@ -301,7 +323,7 @@ def cmd(com="./data/ant"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        start("./data/ivy", "prec")
+        start("./data/ant", "prec")
     else:
         eval(cmd())
         # for i in ["precision", "f1", "auc"]:
