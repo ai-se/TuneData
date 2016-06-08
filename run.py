@@ -170,8 +170,8 @@ def start(src, goal, randomly=False, processor=10, repeats=20):
         writefile(file_name, title)
         writefile(file_name, "Dataset: " + data_name)
         for predictor in [RF, CART]:
-            for task in ["Naive_","Tuned_",  "Cluster_", "Nbrs_","Kmeans_"]:  # "Naive_", "Tuned_",
-            # for task in ["Naive_","Tuned_", "Nbrs_"]:  # "Naive_", "Tuned_",
+            # for task in ["Naive_","Tuned_",  "Cluster_", "Nbrs_","Kmeans_"]:  # "Naive_", "Tuned_",
+            for task in ["Naive_","Tuned_", "Nbrs_","Kmeans_"]:  # "Naive_", "Tuned_",
                 random.seed(1)
                 writefile(file_name, "-" * 30 + "\n")
                 begin_time = time.time()

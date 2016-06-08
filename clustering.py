@@ -77,12 +77,12 @@ def near_data(tune_path=None, test_path=None):
     df_test = get_data(test_path, "test")
     tune_x, tune_y = get_xy(df_tune, normalize=True)
     test_x, test_y = get_xy(df_test, normalize=True)
-    nbrs = NearestNeighbors(n_neighbors=1).fit(tune_x)
+    nbrs = NearestNeighbors(n_neighbors=2).fit(tune_x)
     distance, indices = nbrs.kneighbors(test_x)
     indices = np.hstack(indices)
     unique_index = np.unique(indices)
     normal_tune_x, normal_tune_y = get_xy(df_tune,normalize=False) # get the original data, without normalization.
-    _tune_x, _tune_y = normal_tune_x[indices], normal_tune_y[indices]
+    _tune_x, _tune_y = normal_tune_x[unique_index], normal_tune_y[unique_index]
     # print(len(_tune_x))
     return [_tune_x, _tune_y]
 
@@ -107,7 +107,7 @@ def kmean_data(tune_path=None, test_path=None,cluster=5):
     avg_distance = kmean.inertia_/float(len(test_x))
     tune_distance = kmean.transform(tune_x)
     min_distance = np.apply_along_axis(find_min,1, tune_distance)
-    pick_index = min_distance < avg_distance*1.25 # find tuning data whose all distance to cluster center is less than avg_distance
+    pick_index = min_distance < avg_distance*2 # find tuning data whose all distance to cluster center is less than avg_distance
     normal_tune_x, normal_tune_y = get_xy(df_tune,normalize=False)
     _tune_x, _tune_y = normal_tune_x[pick_index],normal_tune_y[pick_index]
     return [_tune_x, _tune_y]
