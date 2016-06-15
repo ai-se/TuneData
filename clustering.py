@@ -39,25 +39,31 @@ def get_xy(data_df, normalize=True, class_col=20):
     return [data_x, data_y]
 
 
-def cluster_data(tune_path=None, test_path=None):
+def cluster_data(tune_path=None, test_path=None, isPCA=True):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
+    :param isPCA: a flag where setting whether PCA is used or not
     :return: tuning data after clustering, in the form of [indep val,
     depen val]
     '''
     if not tune_path:
-        tune_path = "./data/ant/ant-1.4.csv"
+        tune_path = "./data/ant/ant-1.5.csv"
     if not test_path:
-        test_path = "./data/ant/ant-1.5.csv"
+        test_path = "./data/ant/ant-1.6.csv"
+    # tune_x, tune_y, test_x, test_y = None, None, None, None
     df_tune = get_data(tune_path, "tune")
     df_test = get_data(test_path, "test")
-    tune_x, tune_y = get_xy(df_tune, normalize=True)
-    test_x, test_y = get_xy(df_test, normalize=True)
+    if isPCA:
+        tune_x, tune_y = pca_analysis(df_tune)
+        test_x, test_y = pca_analysis(df_test)
+    else:
+        tune_x, tune_y = get_xy(df_tune, normalize=True)
+        test_x, test_y = get_xy(df_test, normalize=True)
     big_x = np.concatenate((tune_x, test_x))
     # big_Y = np.concatenate((tune_y, test_y))
     big_df = df_tune.append(df_test)
-    big_db = DBSCAN().fit(big_x)
+    big_db = DBSCAN(eps=0.3).fit(big_x)
     df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
     _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'],
                               normalize=False)
@@ -65,10 +71,11 @@ def cluster_data(tune_path=None, test_path=None):
     return [_tune_x, _tune_y]
 
 
-def near_data(tune_path=None, test_path=None):
+def near_data(tune_path=None, test_path=None, isPCA=True):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
+    :param isPCA:a flag where setting whether PCA is used or not
     :return: tuning data after clustering, in the form of [indep val,
     depen val]
     '''
@@ -78,21 +85,26 @@ def near_data(tune_path=None, test_path=None):
         test_path = "./data/ant/ant-1.5.csv"
     df_tune = get_data(tune_path, "tune")
     df_test = get_data(test_path, "test")
-    tune_x, tune_y = get_xy(df_tune, normalize=True)
-    test_x, test_y = get_xy(df_test, normalize=True)
+    if isPCA:
+        tune_x, tune_y = pca_analysis(df_tune)
+        test_x, test_y = pca_analysis(df_test)
+    else:
+        tune_x, tune_y = get_xy(df_tune, normalize=True)
+        test_x, test_y = get_xy(df_test, normalize=True)
+    # tune_x, tune_y = get_xy(df_tune, normalize=True)
+    # test_x, test_y = get_xy(df_test, normalize=True)
     nbrs = NearestNeighbors(n_neighbors=2).fit(tune_x)
     distance, indices = nbrs.kneighbors(test_x)
     indices = np.hstack(indices)
     unique_index = np.unique(indices)
-    normal_tune_x, normal_tune_y = get_xy(df_tune,
-                                          normalize=False)  # get the
+    normal_tune_x, normal_tune_y = get_xy(df_tune, normalize=False)  # get the
     # original data, without normalization.
     _tune_x, _tune_y = normal_tune_x[unique_index], normal_tune_y[unique_index]
     # print(len(_tune_x))
     return [_tune_x, _tune_y]
 
 
-def kmean_data(tune_path=None, test_path=None, cluster=5):
+def kmean_data(tune_path=None, test_path=None, cluster=3, isPCA=True):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
@@ -109,8 +121,14 @@ def kmean_data(tune_path=None, test_path=None, cluster=5):
         test_path = "./data/ant/ant-1.5.csv"
     df_tune = get_data(tune_path, "tune")
     df_test = get_data(test_path, "test")
-    tune_x, tune_y = get_xy(df_tune, normalize=True)
-    test_x, test_y = get_xy(df_test, normalize=True)
+    if isPCA:
+        tune_x, tune_y = pca_analysis(df_tune)
+        test_x, test_y = pca_analysis(df_test)
+    else:
+        tune_x, tune_y = get_xy(df_tune, normalize=True)
+        test_x, test_y = get_xy(df_test, normalize=True)
+    # tune_x, tune_y = get_xy(df_tune, normalize=True)
+    # test_x, test_y = get_xy(df_test, normalize=True)
     kmean = KMeans(n_clusters=cluster).fit(
         test_x)  ## use testing data to do clustering
     avg_distance = kmean.inertia_ / float(len(test_x))
@@ -123,11 +141,13 @@ def kmean_data(tune_path=None, test_path=None, cluster=5):
     return [_tune_x, _tune_y]
 
 
-def pca_analysis(data_path=None, name="tune", n_comp=3):
-    if not data_path:
-        data_path = "./data/ant/ant-1.4.csv"
-    raw_data = get_data(data_path, name)
-    data_x, data_y = get_xy(raw_data, normalize=True)
+def pca_analysis(df_data, n_comp=3):
+    """
+    :param df_data: the data to be applied PCA
+    :param n_comp: nubmer of principle componenets to keep
+    :return [pca_data, corresponding_y]
+    """
+    data_x, data_y = get_xy(df_data, normalize=True)
     pca = decomposition.PCA(n_components=n_comp)
     pca.fit(data_x)
     transformed_data = pca.transform(data_x)
@@ -137,5 +157,5 @@ def pca_analysis(data_path=None, name="tune", n_comp=3):
 if __name__ == "__main__":
     # near_data()
     # cluster_data()
-    # kmean_data()
-    pca_analysis()
+    kmean_data()
+    # pca_analysis()
