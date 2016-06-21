@@ -39,7 +39,7 @@ def get_xy(data_df, normalize=True, class_col=20):
     return [data_x, data_y]
 
 
-def cluster_data(tune_path=None, test_path=None, isPCA=True):
+def cluster_data(tune_path=None, test_path=None, isPCA=False, isLocal=True):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
@@ -63,12 +63,29 @@ def cluster_data(tune_path=None, test_path=None, isPCA=True):
     big_x = np.concatenate((tune_x, test_x))
     # big_Y = np.concatenate((tune_y, test_y))
     big_df = df_tune.append(df_test)
-    big_db = DBSCAN(eps=0.3).fit(big_x)
-    df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
-    _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'],
-                              normalize=False)
+    big_db = DBSCAN().fit(big_x)
+    pdb.set_trace()
+    if isLocal:
+        unique_label = set(big_db.labels_) # get all clusters_ID
+        tune_test_pair = []
+        for cluster_ID in unique_label:
+            df_cls = big_df[big_db.labels_==cluster_ID]
+            _tune_x, _tune_y = get_xy(df_cls[df_cls['name']=='tune'],normalize=False)
+            _test_x,_test_y = get_xy(df_cls[df_cls['name']=='test'],normalize=False)
+            result={}
+            result['tune_x'] = _tune_x
+            result['tune_y'] = _tune_y
+            result['test_x'] = _test_x
+            result['test_y'] = _test_y
+            tune_test_pair.append(result)
+        pdb.set_trace()
+        return tune_test_pair
+    else:
+        df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
+        _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'],
+                                  normalize=False)
     # print(len(_tune_x))
-    return [_tune_x, _tune_y]
+        return [_tune_x, _tune_y]
 
 
 def near_data(tune_path=None, test_path=None, isPCA=True):
@@ -156,6 +173,6 @@ def pca_analysis(df_data, n_comp=3):
 
 if __name__ == "__main__":
     # near_data()
-    # cluster_data()
-    kmean_data()
+    cluster_data()
+    # kmean_data()
     # pca_analysis()
