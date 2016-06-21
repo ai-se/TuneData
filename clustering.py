@@ -121,7 +121,7 @@ def near_data(tune_path=None, test_path=None, isPCA=True):
     return [_tune_x, _tune_y]
 
 
-def kmean_data(tune_path=None, test_path=None, cluster=3, isPCA=True):
+def kmean_data(tune_path=None, test_path=None, cluster=3, isPCA=False, isLocal=True):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
@@ -146,16 +146,19 @@ def kmean_data(tune_path=None, test_path=None, cluster=3, isPCA=True):
         test_x, test_y = get_xy(df_test, normalize=True)
     # tune_x, tune_y = get_xy(df_tune, normalize=True)
     # test_x, test_y = get_xy(df_test, normalize=True)
-    kmean = KMeans(n_clusters=cluster).fit(
-        test_x)  ## use testing data to do clustering
-    avg_distance = kmean.inertia_ / float(len(test_x))
-    tune_distance = kmean.transform(tune_x)
-    min_distance = np.apply_along_axis(find_min, 1, tune_distance)
-    pick_index = min_distance < avg_distance * 2  # find tuning data whose
-    # all distance to cluster center is less than avg_distance
-    normal_tune_x, normal_tune_y = get_xy(df_tune, normalize=False)
-    _tune_x, _tune_y = normal_tune_x[pick_index], normal_tune_y[pick_index]
-    return [_tune_x, _tune_y]
+    if isLocal:
+        pass
+    else:
+        kmean = KMeans(n_clusters=cluster).fit(
+            test_x)  ## use testing data to do clustering
+        avg_distance = kmean.inertia_ / float(len(test_x))
+        tune_distance = kmean.transform(tune_x)
+        min_distance = np.apply_along_axis(find_min, 1, tune_distance)
+        pick_index = min_distance < avg_distance * 2  # find tuning data whose
+        # all distance to cluster center is less than avg_distance
+        normal_tune_x, normal_tune_y = get_xy(df_tune, normalize=False)
+        _tune_x, _tune_y = normal_tune_x[pick_index], normal_tune_y[pick_index]
+        return [_tune_x, _tune_y]
 
 
 def pca_analysis(df_data, n_comp=3):
