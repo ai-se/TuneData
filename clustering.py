@@ -43,7 +43,8 @@ def cluster_data(tune_path=None, test_path=None, isPCA=False, isLocal=True):
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
-    :param isPCA: a flag where setting whether PCA is used or not
+    :param isPCA: a flag to set whether PCA is used or not
+    :param isLocal: a flag to set whether local tuning model is activated or not
     :return: tuning data after clustering, in the form of [indep val,
     depen val]
     '''
@@ -64,27 +65,25 @@ def cluster_data(tune_path=None, test_path=None, isPCA=False, isLocal=True):
     # big_Y = np.concatenate((tune_y, test_y))
     big_df = df_tune.append(df_test)
     big_db = DBSCAN().fit(big_x)
-    pdb.set_trace()
     if isLocal:
-        unique_label = set(big_db.labels_) # get all clusters_ID
+        unique_label = set(big_db.labels_)  # get all clusters_ID
         tune_test_pair = []
         for cluster_ID in unique_label:
-            df_cls = big_df[big_db.labels_==cluster_ID]
-            _tune_x, _tune_y = get_xy(df_cls[df_cls['name']=='tune'],normalize=False)
-            _test_x,_test_y = get_xy(df_cls[df_cls['name']=='test'],normalize=False)
-            result={}
+            df_cls = big_df[big_db.labels_ == cluster_ID]
+            _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'], normalize=False)
+            _test_x, _test_y = get_xy(df_cls[df_cls['name'] == 'test'], normalize=False)
+            result = {}
             result['tune_x'] = _tune_x
             result['tune_y'] = _tune_y
             result['test_x'] = _test_x
             result['test_y'] = _test_y
             tune_test_pair.append(result)
-        pdb.set_trace()
         return tune_test_pair
     else:
         df_cls = big_df[big_db.labels_ != -1]  # labels_ ==1 means outliers
         _tune_x, _tune_y = get_xy(df_cls[df_cls['name'] == 'tune'],
                                   normalize=False)
-    # print(len(_tune_x))
+        # print(len(_tune_x))
         return [_tune_x, _tune_y]
 
 
@@ -125,12 +124,16 @@ def kmean_data(tune_path=None, test_path=None, cluster=3, isPCA=False, isLocal=T
     '''
     :param tune_path: src of a tuning data set
     :param test_path: src of a testing data set
+    :param isLocal: a flag to set whether local tuning model is activated or not
     :return: tuning data after clustering, in the form of [indep val,
     depen val]
     '''
 
     def find_min(a):
         return a.min()
+
+    def find_min_index(a):
+        return np.argmin(a)
 
     if not tune_path:
         tune_path = "./data/ant/ant-1.4.csv"
@@ -144,15 +147,25 @@ def kmean_data(tune_path=None, test_path=None, cluster=3, isPCA=False, isLocal=T
     else:
         tune_x, tune_y = get_xy(df_tune, normalize=True)
         test_x, test_y = get_xy(df_test, normalize=True)
-    # tune_x, tune_y = get_xy(df_tune, normalize=True)
-    # test_x, test_y = get_xy(df_test, normalize=True)
+
+    kmean = KMeans(n_clusters=cluster).fit(test_x) # cluster testing data
+    avg_distance = kmean.inertia_ / float(len(test_x))
+    tune_distance = kmean.transform(tune_x)
     if isLocal:
-        pass
+        tune_cluster_ID = np.apply_along_axis(find_min_index, 1, tune_distance)
+        test_cluster_ID = kmean.predict(test_x)
+        tune_test_pair = []
+        for this_cluster in set(tune_cluster_ID):
+            _tune_x, _tune_y = get_xy(df_tune[tune_cluster_ID == this_cluster], normalize=False)
+            _test_x, _test_y = get_xy(df_test[test_cluster_ID == this_cluster], normalize=False)
+            result = {}
+            result['tune_x'] = _tune_x
+            result['tune_y'] = _tune_y
+            result['test_x'] = _test_x
+            result['test_y'] = _test_y
+            tune_test_pair.append(result)
+        return tune_test_pair
     else:
-        kmean = KMeans(n_clusters=cluster).fit(
-            test_x)  ## use testing data to do clustering
-        avg_distance = kmean.inertia_ / float(len(test_x))
-        tune_distance = kmean.transform(tune_x)
         min_distance = np.apply_along_axis(find_min, 1, tune_distance)
         pick_index = min_distance < avg_distance * 2  # find tuning data whose
         # all distance to cluster center is less than avg_distance
@@ -176,6 +189,6 @@ def pca_analysis(df_data, n_comp=3):
 
 if __name__ == "__main__":
     # near_data()
-    cluster_data()
-    # kmean_data()
+    # cluster_data()
+    kmean_data()
     # pca_analysis()
