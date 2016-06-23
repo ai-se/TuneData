@@ -1,0 +1,1523 @@
+GriSearch: False
+Tuning objective: prec
+Begin time: 2016-06-23 01:03:38
+Dataset: velocityV0
+------------------------------
+
+NaiveRF Running Time: 0.0
+------------------------------
+
+evaluation: 80
+final bestescore: 78
+final config:[3, 2, 30, 71, 0.08, 1]
+evaluation: 50
+final bestescore: 71
+final config:[19, 15, 32, 86, 0.41, 0.94]
+evaluation: 60
+final bestescore: 75
+final config:[17, 10, 30, 50, 0.28, 1]
+evaluation: 70
+final bestescore: 74
+final config:[7, 12, 48, 80, 0.4, 1]
+evaluation: 60
+final bestescore: 75
+final config:[13, 9, 39, 135, 0.99, 1]
+evaluation: 90
+final bestescore: 76
+final config:[6, 2, 19, 105, 0.55, 1]
+evaluation: 60
+final bestescore: 75
+final config:[20, 8, 24, 50, 0.83, 1]
+evaluation: 70
+final bestescore: 74
+final config:[4, 2, 38, 134, 0.23, 1]
+evaluation: 80
+final bestescore: 79
+final config:[3, 2, 21, 57, 0.29, 1]
+evaluation: 70
+final bestescore: 74
+final config:[20, 7, 12, 50, 0.78, 1]
+evaluation: 80
+final bestescore: 77
+final config:[1, 2, 50, 133, 0.01, 1]
+evaluation: 90
+final bestescore: 77
+final config:[8, 4, 32, 121, 0.32, 1]
+evaluation: 70
+final bestescore: 78
+final config:[1, 2, 34, 65, 0.29, 1]
+evaluation: 70
+final bestescore: 76
+final config:[15, 4, 27, 92, 0.84, 1]
+evaluation: 60
+final bestescore: 76
+final config:[8, 2, 23, 137, 0.29, 1]
+evaluation: 50
+final bestescore: 68
+final config:[4, 7, 17, 78, 0.63, 0.86]
+evaluation: 70
+final bestescore: 75
+final config:[13, 5, 50, 125, 0.03, 1]
+evaluation: 100
+final bestescore: 76
+final config:[14, 4, 11, 94, 0.81, 1]
+evaluation: 60
+final bestescore: 72
+final config:[6, 12, 22, 50, 0.38, 0.99]
+evaluation: 70
+final bestescore: 75
+final config:[16, 4, 18, 76, 0.11, 1]
+Tuned_RF Running Time: 23.587
+------------------------------
+
+evaluation: 70
+final bestescore: 66
+final config:[3, 2, 13, 95, 0.01, 1]
+evaluation: 80
+final bestescore: 85
+final config:[14, 3, 43, 109, 0.96, 0.98]
+evaluation: 60
+final bestescore: 71
+final config:[12, 2, 14, 71, 0.16, 0.99]
+evaluation: 80
+final bestescore: 61
+final config:[11, 4, 35, 103, 0.01, 1]
+evaluation: 60
+final bestescore: 84
+final config:[20, 10, 26, 142, 0.78, 1]
+evaluation: 60
+final bestescore: 71
+final config:[16, 2, 21, 114, 0.04, 0.99]
+evaluation: 100
+final bestescore: 64
+final config:[1, 2, 10, 71, 0.18, 1]
+evaluation: 70
+final bestescore: 84
+final config:[13, 13, 20, 129, 0.39, 1]
+evaluation: 60
+final bestescore: 72
+final config:[14, 3, 30, 123, 0.08, 1]
+evaluation: 60
+final bestescore: 54
+final config:[17, 2, 22, 68, 0.59, 0.76]
+evaluation: 60
+final bestescore: 83
+final config:[16, 2, 25, 104, 0.44, 0.89]
+evaluation: 100
+final bestescore: 76
+final config:[5, 2, 44, 112, 0.82, 1.0]
+evaluation: 60
+final bestescore: 60
+final config:[10, 11, 33, 133, 0.04, 0.95]
+evaluation: 80
+final bestescore: 85
+final config:[6, 11, 25, 61, 0.75, 1]
+evaluation: 70
+final bestescore: 71
+final config:[14, 4, 44, 69, 0.78, 0.98]
+evaluation: 70
+final bestescore: 66
+final config:[5, 15, 16, 137, 0.1, 1]
+evaluation: 70
+final bestescore: 83
+final config:[1, 2, 32, 63, 0.59, 1]
+evaluation: 100
+final bestescore: 77
+final config:[1, 2, 23, 75, 0.51, 1]
+evaluation: 70
+final bestescore: 64
+final config:[15, 8, 45, 50, 0.9, 1]
+evaluation: 70
+final bestescore: 85
+final config:[8, 2, 23, 110, 0.97, 0.99]
+evaluation: 70
+final bestescore: 71
+final config:[16, 11, 10, 77, 0.02, 1]
+evaluation: 80
+final bestescore: 66
+final config:[12, 20, 42, 115, 0.42, 1]
+evaluation: 80
+final bestescore: 87
+final config:[20, 3, 33, 94, 0.66, 1]
+evaluation: 60
+final bestescore: 62
+final config:[8, 6, 31, 119, 0.52, 0.86]
+evaluation: 70
+final bestescore: 63
+final config:[19, 12, 48, 84, 0.21, 0.99]
+evaluation: 70
+final bestescore: 85
+final config:[13, 11, 27, 150, 0.88, 1]
+evaluation: 90
+final bestescore: 70
+final config:[1, 11, 11, 150, 1, 1.0]
+evaluation: 60
+final bestescore: 64
+final config:[12, 8, 21, 104, 0.13, 1]
+evaluation: 70
+final bestescore: 85
+final config:[5, 6, 39, 82, 0.65, 0.93]
+evaluation: 80
+final bestescore: 72
+final config:[20, 2, 33, 100, 0.01, 1]
+evaluation: 80
+final bestescore: 64
+final config:[5, 2, 27, 68, 0.32, 1]
+evaluation: 60
+final bestescore: 82
+final config:[14, 6, 45, 60, 0.91, 0.89]
+evaluation: 80
+final bestescore: 73
+final config:[6, 2, 34, 135, 0.01, 0.98]
+evaluation: 60
+final bestescore: 57
+final config:[2, 7, 28, 148, 0.62, 1]
+evaluation: 60
+final bestescore: 85
+final config:[9, 12, 13, 129, 0.68, 1]
+evaluation: 60
+final bestescore: 76
+final config:[10, 3, 19, 119, 0.44, 1]
+evaluation: 60
+final bestescore: 61
+final config:[17, 7, 12, 122, 0.17, 0.98]
+evaluation: 60
+final bestescore: 85
+final config:[3, 7, 45, 94, 0.95, 0.98]
+evaluation: 80
+final bestescore: 81
+final config:[8, 2, 36, 50, 0.03, 1]
+evaluation: 70
+final bestescore: 68
+final config:[18, 7, 37, 50, 0.17, 1]
+evaluation: 60
+final bestescore: 86
+final config:[14, 4, 26, 99, 0.57, 1]
+evaluation: 80
+final bestescore: 75
+final config:[1, 2, 50, 60, 1, 1]
+evaluation: 80
+final bestescore: 60
+final config:[13, 3, 28, 76, 0.42, 0.99]
+evaluation: 70
+final bestescore: 85
+final config:[19, 2, 32, 94, 0.38, 1]
+evaluation: 110
+final bestescore: 74
+final config:[6, 2, 42, 142, 0.63, 0.99]
+evaluation: 90
+final bestescore: 66
+final config:[5, 20, 42, 150, 0.57, 1]
+evaluation: 80
+final bestescore: 85
+final config:[1, 5, 50, 90, 0.51, 1]
+evaluation: 80
+final bestescore: 67
+final config:[10, 17, 25, 147, 1, 1]
+evaluation: 70
+final bestescore: 63
+final config:[1, 13, 32, 150, 0.16, 1]
+evaluation: 70
+final bestescore: 84
+final config:[8, 2, 42, 108, 0.54, 1]
+evaluation: 90
+final bestescore: 74
+final config:[2, 2, 30, 50, 0.16, 1]
+evaluation: 60
+final bestescore: 68
+final config:[2, 19, 48, 122, 0.32, 1]
+evaluation: 70
+final bestescore: 85
+final config:[10, 5, 10, 98, 0.55, 1]
+evaluation: 70
+final bestescore: 69
+final config:[5, 7, 43, 114, 0.91, 1]
+evaluation: 60
+final bestescore: 59
+final config:[17, 14, 21, 84, 0.08, 1]
+evaluation: 90
+final bestescore: 84
+final config:[8, 10, 10, 120, 0.87, 0.94]
+evaluation: 70
+final bestescore: 75
+final config:[9, 3, 18, 53, 0.68, 1]
+evaluation: 60
+final bestescore: 68
+final config:[2, 2, 42, 104, 0.04, 1]
+evaluation: 80
+final bestescore: 83
+final config:[16, 2, 15, 63, 0.24, 1]
+evaluation: 80
+final bestescore: 71
+final config:[2, 7, 10, 141, 0.47, 1]
+Kmeans_RF Running Time: 71.8429
+------------------------------
+
+evaluation: 70
+final bestescore: 81
+final config:[3, 2, 30, 71, 0.08, 1]
+evaluation: 60
+final bestescore: 69
+final config:[10, 7, 50, 145, 0.59, 0.75]
+evaluation: 50
+final bestescore: 81
+final config:[1, 11, 49, 133, 0.4, 0.99]
+evaluation: 60
+final bestescore: 100
+final config:[9, 17, 11, 69, 0.98, 1]
+evaluation: 60
+final bestescore: 28
+final config:[18, 10, 30, 138, 0.22, 0.86]
+evaluation: 50
+final bestescore: 100
+final config:[3, 14, 33, 76, 0.81, 0.08]
+evaluation: 50
+final bestescore: 100
+final config:[2, 12, 42, 94, 0.37, 0.77]
+evaluation: 50
+final bestescore: 72
+final config:[7, 9, 26, 117, 0.44, 0.38]
+evaluation: 70
+final bestescore: 80
+final config:[4, 5, 35, 150, 0.68, 1]
+evaluation: 50
+final bestescore: 69
+final config:[15, 9, 31, 109, 0.91, 0.78]
+evaluation: 60
+final bestescore: 83
+final config:[17, 6, 42, 131, 0.14, 1]
+evaluation: 60
+final bestescore: 100
+final config:[14, 13, 14, 113, 0.65, 1]
+evaluation: 50
+final bestescore: 23
+final config:[16, 2, 25, 119, 0.44, 0.89]
+evaluation: 50
+final bestescore: 100
+final config:[9, 3, 36, 65, 0.84, 0.44]
+evaluation: 50
+final bestescore: 100
+final config:[2, 9, 35, 61, 0.5, 0.49]
+evaluation: 80
+final bestescore: 76
+final config:[7, 2, 49, 50, 0.02, 1]
+evaluation: 80
+final bestescore: 76
+final config:[13, 12, 43, 50, 0.83, 0.92]
+evaluation: 50
+final bestescore: 66
+final config:[2, 11, 40, 105, 0.57, 0.46]
+evaluation: 60
+final bestescore: 78
+final config:[13, 17, 30, 142, 0.35, 0.78]
+evaluation: 50
+final bestescore: 100
+final config:[7, 3, 47, 110, 0.62, 0.96]
+evaluation: 60
+final bestescore: 57
+final config:[20, 16, 36, 92, 0.43, 1]
+evaluation: 50
+final bestescore: 100
+final config:[14, 17, 27, 106, 0.86, 0.75]
+evaluation: 50
+final bestescore: 100
+final config:[14, 16, 45, 89, 0.4, 0.58]
+evaluation: 50
+final bestescore: 72
+final config:[19, 13, 49, 110, 0.93, 0.02]
+evaluation: 60
+final bestescore: 78
+final config:[18, 12, 21, 71, 0.97, 0.91]
+evaluation: 50
+final bestescore: 66
+final config:[7, 11, 17, 119, 0.35, 0.18]
+evaluation: 50
+final bestescore: 81
+final config:[2, 2, 42, 139, 0.23, 0.99]
+evaluation: 60
+final bestescore: 100
+final config:[20, 2, 10, 107, 0.01, 0.99]
+evaluation: 80
+final bestescore: 44
+final config:[20, 13, 50, 106, 0.51, 1]
+evaluation: 50
+final bestescore: 100
+final config:[3, 11, 15, 112, 0.31, 0.46]
+evaluation: 50
+final bestescore: 100
+final config:[19, 4, 10, 109, 0.83, 0.62]
+evaluation: 50
+final bestescore: 72
+final config:[7, 9, 36, 146, 0.91, 0.59]
+evaluation: 80
+final bestescore: 82
+final config:[12, 4, 16, 72, 0.4, 1]
+evaluation: 50
+final bestescore: 66
+final config:[2, 6, 15, 148, 0.28, 0.26]
+evaluation: 50
+final bestescore: 81
+final config:[19, 17, 32, 62, 0.69, 0.76]
+evaluation: 60
+final bestescore: 100
+final config:[19, 15, 17, 106, 0.01, 1]
+evaluation: 70
+final bestescore: 50
+final config:[2, 14, 20, 50, 0.2, 1]
+evaluation: 50
+final bestescore: 100
+final config:[12, 14, 44, 87, 0.78, 0.5]
+evaluation: 50
+final bestescore: 100
+final config:[18, 12, 27, 84, 0.5, 0.7]
+evaluation: 50
+final bestescore: 72
+final config:[1, 6, 43, 131, 0.13, 0.38]
+evaluation: 60
+final bestescore: 80
+final config:[16, 5, 32, 142, 0.52, 1]
+evaluation: 50
+final bestescore: 66
+final config:[19, 3, 42, 149, 0.54, 0.58]
+evaluation: 70
+final bestescore: 90
+final config:[12, 11, 37, 60, 1.0, 1]
+evaluation: 50
+final bestescore: 100
+final config:[9, 18, 13, 67, 0.27, 0.97]
+evaluation: 70
+final bestescore: 57
+final config:[4, 7, 39, 104, 0.25, 1]
+evaluation: 50
+final bestescore: 100
+final config:[5, 13, 32, 120, 0.52, 0.65]
+evaluation: 50
+final bestescore: 100
+final config:[15, 14, 30, 68, 0.82, 0.58]
+evaluation: 50
+final bestescore: 72
+final config:[3, 9, 30, 81, 0.34, 0.58]
+evaluation: 60
+final bestescore: 79
+final config:[16, 3, 24, 132, 0.61, 0.95]
+evaluation: 50
+final bestescore: 66
+final config:[14, 13, 26, 91, 0.5, 0.57]
+evaluation: 70
+final bestescore: 88
+final config:[6, 13, 45, 127, 0.79, 1.0]
+evaluation: 60
+final bestescore: 100
+final config:[13, 13, 27, 125, 0.54, 0.93]
+evaluation: 60
+final bestescore: 44
+final config:[16, 8, 34, 120, 0.29, 1]
+evaluation: 50
+final bestescore: 100
+final config:[18, 13, 40, 137, 0.62, 0.62]
+evaluation: 50
+final bestescore: 100
+final config:[10, 2, 23, 143, 0.12, 0.19]
+evaluation: 70
+final bestescore: 75
+final config:[2, 2, 10, 66, 0.63, 1]
+evaluation: 70
+final bestescore: 81
+final config:[9, 8, 37, 139, 0.7, 1]
+evaluation: 50
+final bestescore: 66
+final config:[8, 14, 21, 137, 0.28, 0.53]
+evaluation: 50
+final bestescore: 88
+final config:[5, 10, 30, 129, 0.62, 0.98]
+evaluation: 60
+final bestescore: 100
+final config:[12, 4, 25, 76, 0.1, 1]
+evaluation: 70
+final bestescore: 44
+final config:[15, 12, 20, 147, 0.65, 1]
+evaluation: 50
+final bestescore: 100
+final config:[8, 10, 30, 78, 0.99, 0.45]
+evaluation: 50
+final bestescore: 100
+final config:[9, 7, 28, 131, 0.41, 0.97]
+evaluation: 60
+final bestescore: 75
+final config:[4, 2, 45, 93, 0.11, 0.91]
+evaluation: 70
+final bestescore: 82
+final config:[5, 2, 26, 92, 0.67, 1]
+evaluation: 50
+final bestescore: 72
+final config:[18, 9, 37, 133, 0.08, 0.9]
+evaluation: 60
+final bestescore: 87
+final config:[20, 6, 23, 111, 0.6, 1]
+evaluation: 50
+final bestescore: 100
+final config:[15, 14, 11, 67, 0.36, 0.88]
+evaluation: 60
+final bestescore: 30
+final config:[2, 18, 16, 96, 0.84, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[9, 12, 29, 142, 0.35, 0.25]
+evaluation: 50
+final bestescore: 100
+final config:[1, 17, 29, 117, 0.81, 0.24]
+evaluation: 60
+final bestescore: 78
+final config:[8, 3, 24, 147, 0.82, 0.99]
+evaluation: 70
+final bestescore: 82
+final config:[15, 7, 42, 73, 0.7, 1]
+evaluation: 50
+final bestescore: 66
+final config:[10, 5, 48, 117, 0.57, 0.27]
+evaluation: 60
+final bestescore: 83
+final config:[1, 2, 12, 138, 0.86, 0.8]
+evaluation: 60
+final bestescore: 100
+final config:[6, 5, 40, 117, 0.95, 1]
+evaluation: 60
+final bestescore: 50
+final config:[4, 9, 48, 52, 0.23, 1]
+evaluation: 50
+final bestescore: 100
+final config:[14, 18, 20, 117, 0.86, 0.42]
+evaluation: 50
+final bestescore: 100
+final config:[5, 11, 43, 68, 0.74, 0.7]
+evaluation: 50
+final bestescore: 72
+final config:[10, 14, 34, 117, 0.1, 0.86]
+evaluation: 60
+final bestescore: 81
+final config:[17, 5, 47, 68, 0.77, 1.0]
+evaluation: 60
+final bestescore: 69
+final config:[20, 2, 10, 50, 0.68, 0.79]
+evaluation: 50
+final bestescore: 83
+final config:[16, 5, 20, 71, 0.33, 0.99]
+evaluation: 50
+final bestescore: 66
+final config:[15, 7, 41, 62, 0.66, 0.61]
+evaluation: 70
+final bestescore: 50
+final config:[14, 11, 50, 147, 1, 0.99]
+evaluation: 50
+final bestescore: 100
+final config:[13, 13, 35, 51, 0.8, 0.35]
+evaluation: 50
+final bestescore: 100
+final config:[15, 14, 34, 123, 0.53, 0.97]
+evaluation: 50
+final bestescore: 72
+final config:[13, 19, 46, 83, 0.87, 0.64]
+evaluation: 70
+final bestescore: 78
+final config:[19, 10, 31, 64, 0.72, 1]
+evaluation: 50
+final bestescore: 66
+final config:[7, 13, 17, 94, 0.37, 0.48]
+evaluation: 60
+final bestescore: 83
+final config:[20, 2, 48, 88, 0.54, 0.87]
+evaluation: 60
+final bestescore: 100
+final config:[19, 19, 25, 50, 0.46, 1]
+evaluation: 90
+final bestescore: 57
+final config:[12, 6, 47, 104, 0.01, 1]
+evaluation: 50
+final bestescore: 100
+final config:[11, 4, 23, 108, 0.97, 0.59]
+evaluation: 50
+final bestescore: 100
+final config:[6, 9, 13, 95, 0.75, 0.32]
+evaluation: 50
+final bestescore: 72
+final config:[12, 14, 44, 126, 0.72, 0.33]
+evaluation: 80
+final bestescore: 81
+final config:[19, 9, 37, 50, 0.88, 1]
+evaluation: 50
+final bestescore: 66
+final config:[16, 3, 11, 68, 0.25, 0.26]
+evaluation: 50
+final bestescore: 83
+final config:[4, 3, 28, 63, 0.48, 0.8]
+evaluation: 60
+final bestescore: 100
+final config:[4, 18, 19, 103, 0.52, 0.98]
+evaluation: 50
+final bestescore: 28
+final config:[10, 15, 44, 132, 0.75, 0.9]
+evaluation: 50
+final bestescore: 100
+final config:[11, 18, 38, 78, 0.67, 0.33]
+evaluation: 50
+final bestescore: 100
+final config:[14, 4, 27, 75, 0.38, 0.55]
+evaluation: 50
+final bestescore: 72
+final config:[14, 14, 36, 110, 0.02, 0.78]
+evaluation: 70
+final bestescore: 81
+final config:[10, 8, 18, 135, 0.74, 0.96]
+evaluation: 60
+final bestescore: 69
+final config:[9, 2, 29, 100, 0.42, 0.69]
+evaluation: 60
+final bestescore: 83
+final config:[9, 7, 10, 150, 1.0, 0.71]
+evaluation: 50
+final bestescore: 66
+final config:[4, 5, 46, 67, 0.77, 0.77]
+evaluation: 50
+final bestescore: 30
+final config:[12, 8, 24, 135, 0.27, 0.91]
+evaluation: 50
+final bestescore: 100
+final config:[10, 12, 10, 105, 0.85, 0.08]
+evaluation: 50
+final bestescore: 100
+final config:[12, 11, 42, 141, 0.33, 0.05]
+evaluation: 50
+final bestescore: 75
+final config:[4, 4, 49, 81, 0.9, 0.87]
+evaluation: 60
+final bestescore: 81
+final config:[11, 2, 42, 103, 0.49, 1]
+evaluation: 50
+final bestescore: 66
+final config:[3, 3, 22, 122, 0.87, 0.55]
+evaluation: 60
+final bestescore: 90
+final config:[15, 10, 12, 134, 0.96, 0.98]
+evaluation: 60
+final bestescore: 100
+final config:[16, 8, 41, 149, 0.83, 1]
+evaluation: 60
+final bestescore: 44
+final config:[19, 8, 46, 142, 0.66, 1]
+evaluation: 50
+final bestescore: 100
+final config:[10, 4, 20, 76, 0.72, 0.85]
+evaluation: 50
+final bestescore: 100
+final config:[4, 8, 33, 63, 0.47, 0.44]
+evaluation: 50
+final bestescore: 72
+final config:[11, 14, 48, 131, 0.29, 0.33]
+evaluation: 70
+final bestescore: 82
+final config:[8, 3, 24, 50, 0.88, 1]
+evaluation: 50
+final bestescore: 66
+final config:[9, 6, 43, 84, 0.95, 0.68]
+evaluation: 60
+final bestescore: 84
+final config:[1, 2, 15, 67, 1, 1]
+evaluation: 50
+final bestescore: 100
+final config:[8, 4, 12, 71, 0.08, 0.99]
+evaluation: 80
+final bestescore: 66
+final config:[12, 17, 28, 84, 0.01, 1]
+evaluation: 50
+final bestescore: 100
+final config:[5, 2, 19, 85, 0.99, 0.46]
+evaluation: 50
+final bestescore: 100
+final config:[1, 6, 10, 84, 0.92, 0.13]
+evaluation: 50
+final bestescore: 72
+final config:[5, 17, 16, 70, 0.25, 0.75]
+evaluation: 70
+final bestescore: 79
+final config:[14, 6, 21, 109, 0.48, 1]
+evaluation: 50
+final bestescore: 66
+final config:[8, 18, 11, 98, 0.51, 0.13]
+evaluation: 60
+final bestescore: 88
+final config:[5, 10, 28, 131, 0.66, 1]
+evaluation: 60
+final bestescore: 100
+final config:[6, 20, 49, 90, 0.57, 0.9]
+evaluation: 70
+final bestescore: 50
+final config:[10, 7, 26, 117, 0.06, 1.0]
+evaluation: 50
+final bestescore: 100
+final config:[12, 16, 18, 81, 0.8, 0.44]
+evaluation: 50
+final bestescore: 100
+final config:[17, 2, 48, 137, 0.33, 0.39]
+evaluation: 50
+final bestescore: 72
+final config:[4, 13, 37, 95, 0.62, 0.18]
+evaluation: 60
+final bestescore: 81
+final config:[14, 7, 22, 115, 0.63, 1]
+evaluation: 50
+final bestescore: 66
+final config:[15, 15, 35, 111, 0.3, 0.06]
+evaluation: 60
+final bestescore: 88
+final config:[7, 5, 10, 50, 0.75, 0.91]
+evaluation: 60
+final bestescore: 100
+final config:[8, 7, 28, 150, 0.12, 1]
+evaluation: 60
+final bestescore: 57
+final config:[14, 19, 29, 77, 0.57, 1]
+evaluation: 50
+final bestescore: 100
+final config:[8, 13, 49, 83, 0.55, 0.08]
+evaluation: 50
+final bestescore: 100
+final config:[1, 16, 47, 109, 0.86, 0.97]
+evaluation: 50
+final bestescore: 72
+final config:[18, 7, 48, 97, 0.77, 0.06]
+evaluation: 80
+final bestescore: 81
+final config:[17, 7, 15, 150, 0.61, 1]
+evaluation: 60
+final bestescore: 69
+final config:[15, 20, 26, 116, 0.32, 0.79]
+evaluation: 50
+final bestescore: 73
+final config:[15, 16, 28, 74, 0.13, 0.04]
+evaluation: 60
+final bestescore: 100
+final config:[7, 3, 48, 150, 0.07, 0.94]
+evaluation: 60
+final bestescore: 44
+final config:[18, 11, 14, 57, 0.88, 1]
+evaluation: 50
+final bestescore: 100
+final config:[18, 11, 31, 80, 0.24, 0.86]
+evaluation: 50
+final bestescore: 100
+final config:[1, 16, 44, 134, 0.02, 0.33]
+evaluation: 50
+final bestescore: 72
+final config:[15, 2, 48, 68, 0.24, 0.26]
+evaluation: 80
+final bestescore: 79
+final config:[11, 5, 24, 138, 0.1, 1]
+evaluation: 50
+final bestescore: 66
+final config:[10, 3, 15, 55, 0.35, 0.26]
+evaluation: 50
+final bestescore: 83
+final config:[11, 11, 41, 105, 0.76, 0.78]
+evaluation: 50
+final bestescore: 100
+final config:[13, 14, 39, 140, 0.38, 1.0]
+evaluation: 70
+final bestescore: 44
+final config:[4, 12, 50, 80, 0.09, 1]
+evaluation: 50
+final bestescore: 100
+final config:[11, 10, 21, 138, 0.91, 0.59]
+evaluation: 50
+final bestescore: 100
+final config:[10, 16, 14, 139, 0.41, 0.43]
+evaluation: 60
+final bestescore: 75
+final config:[6, 4, 14, 102, 0.94, 0.92]
+Cluster_RF Running Time: 153.19005
+------------------------------
+
+NaiveCART Running Time: 0.0
+------------------------------
+
+evaluation: 60
+final bestescore: 72
+final config:[0.92, 50, 19, 4, 0.87]
+evaluation: 60
+final bestescore: 74
+final config:[0.24, 23, 5, 14, 0.87]
+evaluation: 60
+final bestescore: 71
+final config:[0.25, 40, 6, 11, 1]
+evaluation: 70
+final bestescore: 82
+final config:[0.43, 12, 16, 17, 1]
+evaluation: 80
+final bestescore: 79
+final config:[0.26, 15, 6, 14, 1]
+evaluation: 50
+final bestescore: 86
+final config:[0.03, 1, 9, 12, 0.97]
+evaluation: 60
+final bestescore: 79
+final config:[0.15, 2, 11, 5, 1]
+evaluation: 70
+final bestescore: 69
+final config:[0.01, 47, 12, 3, 0.91]
+evaluation: 60
+final bestescore: 75
+final config:[0.34, 40, 14, 9, 0.94]
+evaluation: 70
+final bestescore: 69
+final config:[0.35, 6, 14, 12, 0.75]
+evaluation: 60
+final bestescore: 82
+final config:[0.41, 49, 8, 16, 0.97]
+evaluation: 60
+final bestescore: 75
+final config:[0.34, 8, 7, 3, 1]
+evaluation: 60
+final bestescore: 70
+final config:[0.83, 21, 17, 5, 0.88]
+evaluation: 60
+final bestescore: 73
+final config:[0.34, 6, 17, 17, 0.75]
+evaluation: 50
+final bestescore: 74
+final config:[0.95, 26, 2, 16, 0.98]
+evaluation: 60
+final bestescore: 75
+final config:[0.32, 24, 3, 8, 1]
+evaluation: 60
+final bestescore: 68
+final config:[0.95, 15, 9, 16, 0.68]
+evaluation: 70
+final bestescore: 79
+final config:[0.25, 24, 7, 13, 1]
+evaluation: 70
+final bestescore: 79
+final config:[0.75, 6, 18, 11, 0.92]
+evaluation: 50
+final bestescore: 67
+final config:[0.2, 43, 2, 4, 0.31]
+Tuned_CART Running Time: 0.07955
+------------------------------
+
+evaluation: 70
+final bestescore: 53
+final config:[0.01, 23, 4, 1, 0.45]
+evaluation: 60
+final bestescore: 85
+final config:[0.97, 32, 13, 2, 0.94]
+evaluation: 60
+final bestescore: 72
+final config:[0.42, 20, 13, 10, 0.98]
+evaluation: 60
+final bestescore: 55
+final config:[0.02, 5, 3, 14, 0.89]
+evaluation: 60
+final bestescore: 89
+final config:[0.76, 31, 19, 3, 1]
+evaluation: 50
+final bestescore: 65
+final config:[0.23, 21, 4, 13, 0.82]
+evaluation: 50
+final bestescore: 100
+final config:[0.06, 1, 5, 9, 0.97]
+evaluation: 60
+final bestescore: 84
+final config:[0.28, 50, 7, 5, 0.81]
+evaluation: 100
+final bestescore: 100
+final config:[0.01, 7, 5, 1, 1]
+evaluation: 70
+final bestescore: 66
+final config:[0.08, 43, 6, 6, 0.91]
+evaluation: 60
+final bestescore: 85
+final config:[0.01, 50, 17, 10, 1]
+evaluation: 50
+final bestescore: 69
+final config:[0.86, 16, 11, 12, 0.92]
+evaluation: 60
+final bestescore: 100
+final config:[0.13, 4, 8, 4, 1]
+evaluation: 60
+final bestescore: 86
+final config:[0.48, 35, 4, 8, 1]
+evaluation: 80
+final bestescore: 82
+final config:[0.65, 39, 11, 20, 1]
+evaluation: 60
+final bestescore: 58
+final config:[0.31, 13, 3, 14, 0.95]
+evaluation: 70
+final bestescore: 88
+final config:[0.69, 46, 14, 1, 1]
+evaluation: 60
+final bestescore: 62
+final config:[0.44, 35, 2, 8, 0.65]
+evaluation: 60
+final bestescore: 70
+final config:[0.85, 49, 20, 9, 1]
+evaluation: 60
+final bestescore: 84
+final config:[0.13, 21, 17, 6, 0.77]
+evaluation: 60
+final bestescore: 64
+final config:[0.8, 47, 6, 17, 0.92]
+evaluation: 70
+final bestescore: 65
+final config:[0.38, 49, 3, 16, 1]
+evaluation: 70
+final bestescore: 85
+final config:[0.13, 44, 9, 1, 0.96]
+evaluation: 50
+final bestescore: 66
+final config:[0.5, 17, 6, 6, 0.64]
+evaluation: 80
+final bestescore: 64
+final config:[0.53, 50, 6, 14, 0.79]
+evaluation: 50
+final bestescore: 85
+final config:[0.31, 7, 19, 16, 0.92]
+evaluation: 50
+final bestescore: 73
+final config:[0.55, 8, 14, 8, 0.91]
+evaluation: 60
+final bestescore: 82
+final config:[0.41, 31, 11, 15, 1]
+evaluation: 60
+final bestescore: 83
+final config:[0.7, 18, 8, 4, 0.81]
+evaluation: 60
+final bestescore: 82
+final config:[0.84, 17, 10, 13, 1]
+evaluation: 50
+final bestescore: 53
+final config:[0.01, 37, 15, 1, 0.8]
+evaluation: 60
+final bestescore: 88
+final config:[0.41, 4, 3, 18, 1]
+evaluation: 50
+final bestescore: 69
+final config:[0.63, 26, 17, 3, 0.86]
+evaluation: 60
+final bestescore: 54
+final config:[0.77, 44, 2, 1, 0.77]
+evaluation: 50
+final bestescore: 82
+final config:[0.91, 41, 5, 12, 0.75]
+evaluation: 70
+final bestescore: 80
+final config:[1, 2, 4, 8, 1]
+evaluation: 50
+final bestescore: 50
+final config:[0.36, 26, 7, 8, 0.04]
+evaluation: 60
+final bestescore: 82
+final config:[0.01, 49, 9, 1, 0.99]
+evaluation: 70
+final bestescore: 71
+final config:[0.61, 19, 16, 9, 1]
+evaluation: 80
+final bestescore: 100
+final config:[0.26, 4, 20, 9, 1]
+evaluation: 50
+final bestescore: 84
+final config:[0.67, 28, 2, 15, 0.87]
+evaluation: 70
+final bestescore: 84
+final config:[0.36, 8, 12, 2, 1]
+evaluation: 50
+final bestescore: 67
+final config:[0.53, 39, 11, 18, 0.92]
+evaluation: 80
+final bestescore: 84
+final config:[0.51, 37, 8, 5, 1]
+evaluation: 60
+final bestescore: 82
+final config:[0.82, 13, 2, 12, 0.88]
+evaluation: 60
+final bestescore: 100
+final config:[0.28, 6, 4, 14, 1]
+evaluation: 70
+final bestescore: 85
+final config:[0.47, 22, 2, 4, 0.86]
+evaluation: 80
+final bestescore: 77
+final config:[0.95, 38, 20, 13, 0.98]
+evaluation: 60
+final bestescore: 51
+final config:[0.38, 19, 20, 20, 0.67]
+evaluation: 50
+final bestescore: 87
+final config:[0.81, 5, 5, 10, 0.94]
+evaluation: 70
+final bestescore: 68
+final config:[0.51, 8, 18, 10, 1]
+evaluation: 60
+final bestescore: 54
+final config:[0.67, 22, 2, 1, 0.46]
+evaluation: 80
+final bestescore: 86
+final config:[0.91, 19, 20, 1, 1]
+evaluation: 60
+final bestescore: 78
+final config:[0.18, 42, 15, 8, 1]
+evaluation: 50
+final bestescore: 51
+final config:[0.88, 18, 18, 2, 0.61]
+evaluation: 50
+final bestescore: 86
+final config:[0.94, 22, 19, 2, 0.98]
+evaluation: 60
+final bestescore: 73
+final config:[1, 10, 8, 1, 0.98]
+evaluation: 70
+final bestescore: 53
+final config:[0.08, 43, 5, 10, 0.67]
+evaluation: 70
+final bestescore: 86
+final config:[0.43, 19, 10, 6, 0.9]
+evaluation: 70
+final bestescore: 79
+final config:[0.91, 7, 15, 11, 1]
+Kmeans_CART Running Time: 0.18655
+------------------------------
+
+evaluation: 60
+final bestescore: 78
+final config:[0.92, 50, 19, 4, 0.87]
+evaluation: 60
+final bestescore: 100
+final config:[0.27, 26, 4, 14, 0.98]
+evaluation: 70
+final bestescore: 88
+final config:[0.54, 39, 18, 6, 0.88]
+evaluation: 50
+final bestescore: 66
+final config:[0.65, 10, 8, 11, 0.84]
+evaluation: 70
+final bestescore: 50
+final config:[0.57, 6, 14, 13, 1]
+evaluation: 50
+final bestescore: 100
+final config:[0.03, 46, 16, 14, 0.27]
+evaluation: 50
+final bestescore: 100
+final config:[0.88, 7, 2, 6, 0.28]
+evaluation: 60
+final bestescore: 84
+final config:[0.87, 5, 20, 8, 0.81]
+evaluation: 70
+final bestescore: 81
+final config:[0.23, 10, 10, 2, 1]
+evaluation: 50
+final bestescore: 66
+final config:[0.98, 11, 4, 4, 0.38]
+evaluation: 60
+final bestescore: 85
+final config:[0.56, 21, 11, 12, 0.91]
+evaluation: 50
+final bestescore: 100
+final config:[0.9, 15, 19, 12, 0.99]
+evaluation: 60
+final bestescore: 37
+final config:[0.01, 25, 2, 3, 0.81]
+evaluation: 50
+final bestescore: 100
+final config:[0.47, 28, 7, 13, 0.52]
+evaluation: 50
+final bestescore: 100
+final config:[0.19, 34, 6, 14, 0.14]
+evaluation: 60
+final bestescore: 87
+final config:[0.99, 5, 12, 2, 1]
+evaluation: 70
+final bestescore: 82
+final config:[0.15, 6, 12, 8, 1]
+evaluation: 50
+final bestescore: 66
+final config:[0.19, 1, 15, 12, 0.81]
+evaluation: 60
+final bestescore: 88
+final config:[0.25, 24, 7, 13, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[0.53, 44, 11, 11, 0.85]
+evaluation: 70
+final bestescore: 60
+final config:[0.28, 14, 15, 9, 0.98]
+evaluation: 50
+final bestescore: 100
+final config:[0.27, 34, 15, 7, 0.26]
+evaluation: 50
+final bestescore: 100
+final config:[0.4, 17, 8, 3, 0.39]
+evaluation: 70
+final bestescore: 81
+final config:[0.26, 28, 7, 2, 0.81]
+evaluation: 50
+final bestescore: 80
+final config:[0.65, 17, 19, 3, 0.98]
+evaluation: 70
+final bestescore: 100
+final config:[0.03, 1, 11, 1, 0.98]
+evaluation: 50
+final bestescore: 84
+final config:[0.07, 39, 13, 8, 0.71]
+evaluation: 60
+final bestescore: 100
+final config:[0.27, 28, 10, 1, 0.74]
+evaluation: 60
+final bestescore: 33
+final config:[0.32, 18, 9, 13, 0.7]
+evaluation: 50
+final bestescore: 100
+final config:[0.16, 47, 19, 15, 0.74]
+evaluation: 50
+final bestescore: 100
+final config:[0.73, 11, 12, 9, 0.47]
+evaluation: 50
+final bestescore: 84
+final config:[0.09, 20, 3, 8, 0.89]
+evaluation: 50
+final bestescore: 74
+final config:[0.24, 41, 13, 19, 0.9]
+evaluation: 60
+final bestescore: 69
+final config:[0.01, 40, 16, 6, 0.23]
+evaluation: 70
+final bestescore: 100
+final config:[0.46, 13, 13, 3, 1.0]
+evaluation: 60
+final bestescore: 100
+final config:[0.45, 12, 3, 4, 0.99]
+evaluation: 70
+final bestescore: 30
+final config:[1, 27, 9, 2, 0.76]
+evaluation: 50
+final bestescore: 100
+final config:[0.09, 48, 3, 18, 0.21]
+evaluation: 50
+final bestescore: 100
+final config:[0.91, 31, 9, 2, 0.99]
+evaluation: 60
+final bestescore: 100
+final config:[0.83, 36, 11, 1, 1]
+evaluation: 60
+final bestescore: 79
+final config:[0.61, 19, 16, 9, 1]
+evaluation: 70
+final bestescore: 100
+final config:[1, 1, 20, 5, 1]
+evaluation: 60
+final bestescore: 90
+final config:[0.87, 13, 16, 4, 0.91]
+evaluation: 50
+final bestescore: 100
+final config:[0.86, 5, 14, 19, 0.98]
+evaluation: 60
+final bestescore: 50
+final config:[0.4, 50, 9, 14, 0.94]
+evaluation: 50
+final bestescore: 100
+final config:[0.36, 39, 5, 2, 0.85]
+evaluation: 50
+final bestescore: 100
+final config:[0.25, 6, 15, 10, 0.76]
+evaluation: 70
+final bestescore: 88
+final config:[0.8, 12, 7, 2, 0.91]
+evaluation: 60
+final bestescore: 86
+final config:[0.8, 35, 13, 12, 0.99]
+evaluation: 60
+final bestescore: 91
+final config:[0.46, 8, 14, 11, 1]
+evaluation: 70
+final bestescore: 100
+final config:[0.59, 10, 13, 6, 0.81]
+evaluation: 60
+final bestescore: 100
+final config:[0.2, 15, 13, 19, 1]
+evaluation: 70
+final bestescore: 50
+final config:[1, 39, 2, 6, 1]
+evaluation: 50
+final bestescore: 100
+final config:[0.5, 34, 14, 17, 0.46]
+evaluation: 50
+final bestescore: 100
+final config:[0.48, 1, 17, 15, 0.3]
+evaluation: 50
+final bestescore: 87
+final config:[0.35, 40, 9, 1, 0.99]
+evaluation: 50
+final bestescore: 78
+final config:[0.99, 6, 18, 15, 0.95]
+evaluation: 60
+final bestescore: 100
+final config:[0.08, 31, 18, 5, 1.0]
+evaluation: 60
+final bestescore: 100
+final config:[0.6, 44, 8, 11, 0.96]
+evaluation: 50
+final bestescore: 100
+final config:[0.16, 20, 15, 2, 0.89]
+evaluation: 60
+final bestescore: 33
+final config:[0.32, 32, 11, 13, 0.68]
+evaluation: 50
+final bestescore: 100
+final config:[0.68, 26, 7, 1, 0.2]
+evaluation: 50
+final bestescore: 100
+final config:[0.53, 25, 17, 17, 0.11]
+evaluation: 80
+final bestescore: 84
+final config:[0.97, 25, 13, 6, 0.94]
+evaluation: 70
+final bestescore: 82
+final config:[0.96, 25, 16, 10, 1]
+evaluation: 60
+final bestescore: 100
+final config:[0.09, 1, 13, 11, 0.97]
+evaluation: 60
+final bestescore: 100
+final config:[0.82, 30, 5, 6, 0.83]
+evaluation: 50
+final bestescore: 100
+final config:[0.61, 42, 17, 18, 0.99]
+evaluation: 60
+final bestescore: 50
+final config:[0.67, 47, 16, 20, 0.91]
+evaluation: 50
+final bestescore: 100
+final config:[0.22, 25, 6, 11, 0.43]
+evaluation: 50
+final bestescore: 100
+final config:[0.14, 26, 6, 18, 0.14]
+evaluation: 50
+final bestescore: 90
+final config:[0.92, 42, 5, 1, 0.89]
+evaluation: 80
+final bestescore: 86
+final config:[0.94, 24, 6, 13, 1]
+evaluation: 50
+final bestescore: 66
+final config:[0.98, 34, 3, 18, 0.03]
+evaluation: 70
+final bestescore: 90
+final config:[0.84, 50, 2, 9, 0.94]
+evaluation: 50
+final bestescore: 100
+final config:[0.22, 15, 10, 10, 0.47]
+evaluation: 80
+final bestescore: 66
+final config:[0.53, 50, 2, 16, 0.94]
+evaluation: 50
+final bestescore: 100
+final config:[0.61, 30, 13, 12, 0.49]
+evaluation: 50
+final bestescore: 100
+final config:[0.27, 39, 2, 13, 0.36]
+evaluation: 70
+final bestescore: 84
+final config:[0.01, 25, 6, 7, 1]
+evaluation: 70
+final bestescore: 78
+final config:[0.49, 36, 2, 4, 1.0]
+evaluation: 60
+final bestescore: 100
+final config:[0.09, 28, 9, 6, 0.9]
+evaluation: 60
+final bestescore: 100
+final config:[0.28, 25, 3, 7, 0.93]
+evaluation: 60
+final bestescore: 100
+final config:[0.88, 11, 14, 1, 1]
+evaluation: 60
+final bestescore: 33
+final config:[0.89, 45, 7, 20, 0.99]
+evaluation: 50
+final bestescore: 100
+final config:[0.07, 28, 2, 11, 0.5]
+evaluation: 50
+final bestescore: 100
+final config:[0.63, 36, 6, 9, 0.75]
+evaluation: 60
+final bestescore: 81
+final config:[0.65, 25, 2, 9, 1]
+evaluation: 70
+final bestescore: 84
+final config:[0.73, 27, 3, 8, 1]
+evaluation: 60
+final bestescore: 90
+final config:[0.45, 15, 11, 14, 0.95]
+evaluation: 50
+final bestescore: 90
+final config:[0.71, 40, 15, 4, 0.95]
+evaluation: 50
+final bestescore: 100
+final config:[0.42, 8, 17, 8, 0.85]
+evaluation: 50
+final bestescore: 44
+final config:[0.31, 32, 7, 9, 0.94]
+evaluation: 50
+final bestescore: 100
+final config:[0.28, 13, 17, 14, 0.46]
+evaluation: 50
+final bestescore: 100
+final config:[0.07, 17, 9, 3, 0.41]
+evaluation: 90
+final bestescore: 88
+final config:[0.45, 26, 8, 1, 0.91]
+evaluation: 50
+final bestescore: 82
+final config:[0.64, 28, 2, 12, 0.98]
+evaluation: 60
+final bestescore: 100
+final config:[0.3, 5, 10, 17, 1]
+evaluation: 50
+final bestescore: 90
+final config:[0.9, 31, 2, 8, 0.92]
+evaluation: 50
+final bestescore: 100
+final config:[0.24, 24, 2, 8, 0.79]
+evaluation: 80
+final bestescore: 50
+final config:[0.69, 20, 19, 19, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[0.77, 24, 6, 5, 0.47]
+evaluation: 50
+final bestescore: 100
+final config:[0.66, 8, 9, 13, 0.63]
+evaluation: 90
+final bestescore: 100
+final config:[0.98, 11, 20, 1, 0.82]
+evaluation: 90
+final bestescore: 85
+final config:[0.88, 48, 16, 10, 0.95]
+evaluation: 50
+final bestescore: 66
+final config:[0.61, 16, 9, 1, 0.04]
+evaluation: 50
+final bestescore: 84
+final config:[0.84, 45, 16, 14, 0.92]
+evaluation: 60
+final bestescore: 100
+final config:[0.68, 19, 2, 3, 0.68]
+evaluation: 60
+final bestescore: 50
+final config:[0.45, 40, 18, 20, 0.85]
+evaluation: 50
+final bestescore: 100
+final config:[0.18, 19, 9, 7, 0.87]
+evaluation: 50
+final bestescore: 100
+final config:[0.32, 44, 5, 6, 0.46]
+evaluation: 50
+final bestescore: 86
+final config:[0.87, 35, 4, 5, 0.9]
+evaluation: 50
+final bestescore: 82
+final config:[0.89, 35, 16, 12, 0.8]
+evaluation: 50
+final bestescore: 69
+final config:[0.3, 19, 9, 4, 0.52]
+evaluation: 50
+final bestescore: 100
+final config:[0.3, 5, 10, 17, 0.91]
+evaluation: 50
+final bestescore: 100
+final config:[0.56, 40, 6, 4, 0.8]
+evaluation: 50
+final bestescore: 75
+final config:[0.5, 24, 13, 18, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[0.22, 1, 9, 18, 0.59]
+evaluation: 50
+final bestescore: 100
+final config:[0.97, 13, 3, 6, 0.91]
+evaluation: 80
+final bestescore: 83
+final config:[0.76, 38, 7, 6, 0.88]
+evaluation: 70
+final bestescore: 86
+final config:[0.66, 22, 8, 20, 0.92]
+evaluation: 50
+final bestescore: 66
+final config:[0.1, 12, 5, 16, 0.13]
+evaluation: 90
+final bestescore: 91
+final config:[0.93, 47, 19, 3, 1]
+evaluation: 50
+final bestescore: 100
+final config:[0.5, 30, 4, 8, 0.89]
+evaluation: 60
+final bestescore: 40
+final config:[0.25, 50, 2, 11, 0.77]
+evaluation: 50
+final bestescore: 100
+final config:[0.35, 46, 12, 18, 0.62]
+evaluation: 50
+final bestescore: 100
+final config:[0.81, 28, 2, 9, 0.87]
+evaluation: 50
+final bestescore: 78
+final config:[0.71, 47, 2, 4, 0.61]
+evaluation: 60
+final bestescore: 86
+final config:[0.9, 47, 5, 12, 1]
+evaluation: 60
+final bestescore: 69
+final config:[0.07, 15, 18, 5, 0.76]
+evaluation: 60
+final bestescore: 100
+final config:[0.33, 50, 14, 18, 1]
+evaluation: 50
+final bestescore: 66
+final config:[0.13, 26, 4, 1, 0.63]
+evaluation: 60
+final bestescore: 33
+final config:[0.34, 11, 12, 15, 0.58]
+evaluation: 50
+final bestescore: 100
+final config:[0.23, 29, 4, 19, 0.18]
+evaluation: 50
+final bestescore: 100
+final config:[0.23, 45, 8, 9, 0.79]
+evaluation: 60
+final bestescore: 80
+final config:[0.77, 31, 16, 9, 0.93]
+evaluation: 70
+final bestescore: 77
+final config:[0.63, 33, 10, 17, 1]
+evaluation: 80
+final bestescore: 100
+final config:[0.03, 11, 2, 20, 1]
+evaluation: 70
+final bestescore: 80
+final config:[0.53, 20, 7, 17, 0.64]
+evaluation: 60
+final bestescore: 100
+final config:[0.08, 2, 4, 20, 0.99]
+evaluation: 60
+final bestescore: 50
+final config:[0.41, 16, 3, 14, 0.89]
+evaluation: 50
+final bestescore: 100
+final config:[0.52, 31, 7, 5, 0.74]
+evaluation: 50
+final bestescore: 100
+final config:[0.92, 37, 3, 1, 0.1]
+evaluation: 50
+final bestescore: 100
+final config:[0.99, 10, 17, 1, 0.97]
+evaluation: 50
+final bestescore: 81
+final config:[0.55, 48, 9, 7, 0.9]
+evaluation: 50
+final bestescore: 66
+final config:[0.69, 18, 5, 7, 0.16]
+evaluation: 50
+final bestescore: 90
+final config:[0.75, 14, 7, 2, 0.66]
+evaluation: 60
+final bestescore: 100
+final config:[0.1, 30, 19, 1, 0.45]
+evaluation: 70
+final bestescore: 75
+final config:[0.54, 19, 10, 18, 0.93]
+evaluation: 50
+final bestescore: 100
+final config:[0.02, 24, 12, 4, 0.56]
+evaluation: 50
+final bestescore: 100
+final config:[0.32, 25, 13, 13, 0.05]
+evaluation: 70
+final bestescore: 84
+final config:[0.91, 30, 3, 2, 0.75]
+evaluation: 60
+final bestescore: 82
+final config:[0.98, 14, 12, 9, 0.99]
+evaluation: 50
+final bestescore: 69
+final config:[0.7, 35, 11, 19, 0.72]
+evaluation: 70
+final bestescore: 90
+final config:[0.97, 48, 17, 1, 1]
+evaluation: 60
+final bestescore: 100
+final config:[0.73, 23, 13, 11, 0.76]
+evaluation: 60
+final bestescore: 42
+final config:[0.77, 15, 3, 16, 0.96]
+evaluation: 50
+final bestescore: 100
+final config:[0.97, 24, 15, 1, 0.08]
+evaluation: 50
+final bestescore: 100
+final config:[0.47, 47, 12, 14, 0.48]
+evaluation: 50
+final bestescore: 80
+final config:[0.87, 22, 5, 1, 0.6]
+Cluster_CART Running Time: 0.4455
+
+********** pd **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,  Cluster_CART: Y-Def ,      65  ,     9 (          ---- * ---          ), 0.53,  0.61,  0.65,  0.69,  0.74
+   1 ,   Kmeans_CART: Y-Def ,      69  ,    10 (            ---| *  --        ), 0.57,  0.65,  0.69,  0.74,  0.78
+   1 ,    Tuned_CART: Y-Def ,      73  ,    11 (            ---|-- *   ------ ), 0.58,  0.70,  0.73,  0.80,  0.92
+   2 ,      Tuned_RF: Y-Def ,      84  ,     1 (               |        -*--  ), 0.83,  0.84,  0.84,  0.85,  0.91
+   2 ,     Kmeans_RF: Y-Def ,      85  ,     4 (               |        -*-   ), 0.82,  0.84,  0.85,  0.85,  0.89
+   3 ,    Cluster_RF: Y-Def ,      89  ,     3 (               |          -*- ), 0.87,  0.89,  0.89,  0.91,  0.92
+
+********** pf **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,  Cluster_CART: Y-Def ,      47  ,    13 (            - *|--            ), 0.41,  0.45,  0.47,  0.54,  0.60
+   1 ,   Kmeans_CART: Y-Def ,      54  ,    17 (            -- |* --          ), 0.41,  0.47,  0.54,  0.58,  0.65
+   2 ,    Tuned_CART: Y-Def ,      59  ,    21 (          ---- |  * ----      ), 0.36,  0.49,  0.59,  0.65,  0.76
+   2 ,     Kmeans_RF: Y-Def ,      57  ,     6 (               |- *           ), 0.52,  0.56,  0.58,  0.59,  0.62
+   2 ,      Tuned_RF: Y-Def ,      60  ,     5 (               | -*----       ), 0.56,  0.58,  0.60,  0.62,  0.74
+   3 ,    Cluster_RF: Y-Def ,      70  ,     6 (               |     -*--     ), 0.68,  0.69,  0.70,  0.72,  0.78
+
+********** prec **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    Cluster_RF: Y-Def ,      39  ,     2 (  - *          |              ), 0.37,  0.38,  0.39,  0.40,  0.40
+   1 ,    Tuned_CART: Y-Def ,      40  ,     6 (  -  *  --     |              ), 0.37,  0.38,  0.40,  0.43,  0.46
+   1 ,   Kmeans_CART: Y-Def ,      40  ,     6 ( -   *  -      |              ), 0.36,  0.37,  0.40,  0.43,  0.45
+   1 ,  Cluster_CART: Y-Def ,      41  ,     4 ( ---- *--      |              ), 0.36,  0.40,  0.41,  0.42,  0.44
+   1 ,      Tuned_RF: Y-Def ,      41  ,     2 (     -*-       |              ), 0.40,  0.41,  0.41,  0.42,  0.43
+   2 ,     Kmeans_RF: Y-Def ,      43  ,     2 (      - *      |              ), 0.41,  0.42,  0.43,  0.44,  0.45
+
+********** f **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,   Kmeans_CART: Y-Def ,      50  ,     4 (        --    *| -------      ), 0.47,  0.48,  0.50,  0.52,  0.56
+   1 ,  Cluster_CART: Y-Def ,      50  ,     4 (     -----    *| -----        ), 0.45,  0.48,  0.50,  0.52,  0.55
+   1 ,    Tuned_CART: Y-Def ,      52  ,     2 (       --------| *----        ), 0.46,  0.51,  0.52,  0.52,  0.55
+   2 ,    Cluster_RF: Y-Def ,      54  ,     2 (               |     *--      ), 0.53,  0.53,  0.54,  0.55,  0.56
+   3 ,      Tuned_RF: Y-Def ,      56  ,     1 (               |     -  *-    ), 0.54,  0.55,  0.56,  0.56,  0.57
+   3 ,     Kmeans_RF: Y-Def ,      56  ,     1 (               |      --  * - ), 0.55,  0.56,  0.57,  0.58,  0.59
+
+********** g **********
+rank ,                 name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    Cluster_RF: Y-Def ,      44  ,     5 (             --| *-           ), 0.37,  0.42,  0.44,  0.45,  0.47
+   2 ,    Tuned_CART: Y-Def ,      52  ,    13 (               |---   *  ---  ), 0.40,  0.47,  0.52,  0.56,  0.61
+   2 ,      Tuned_RF: Y-Def ,      54  ,     4 (               |       *      ), 0.51,  0.52,  0.54,  0.56,  0.57
+   3 ,     Kmeans_RF: Y-Def ,      56  ,     2 (               |       - *-   ), 0.53,  0.55,  0.56,  0.57,  0.60
+   3 ,   Kmeans_CART: Y-Def ,      56  ,     9 (               |   ---   *--  ), 0.47,  0.51,  0.57,  0.58,  0.62
+   3 ,  Cluster_CART: Y-Def ,      56  ,     4 (               |     --- *--  ), 0.50,  0.55,  0.56,  0.58,  0.61
+
+ In terms of 2 : the times of better tuners are{}
+End time :2016-06-23 02:26:48
+
+
