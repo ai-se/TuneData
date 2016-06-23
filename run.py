@@ -89,9 +89,9 @@ def load_data(path, num_dataset=3, data_start=3, class_col=20, cluster=False):
                     X.append(build(data[i + j]))
             except IndexError, e:
                 break
-            X.append(cluster_data(data[i], data[i + 2]))  ##  put the clustered tuning data at the end of this list
-            X.append(near_data(data[i], data[i + 2]))  ##  put the nearest tuning data at the end of this list
-            X.append(kmean_data(data[i], data[i + 2]))  ## Kmeans, clustering data
+            X.append(cluster_data(data[i+1], data[i + 2]))  ##  put the clustered tuning data at the end of this list
+            X.append(near_data(data[i+1], data[i + 2]))  ##  put the nearest tuning data at the end of this list
+            X.append(kmean_data(data[i+1], data[i + 2]))  ## Kmeans, clustering data
             yield (folder + "V" + str(count), X)
             count += 1
 
