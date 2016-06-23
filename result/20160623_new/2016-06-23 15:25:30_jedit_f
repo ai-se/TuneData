@@ -1,0 +1,141 @@
+GriSearch: False
+Tuning objective: f
+Begin time: 2016-06-23 15:25:31
+Dataset: jeditV0
+------------------------------
+
+Naive_RF Running Time: 0.6484
+------------------------------
+
+evaluation: 60
+final bestescore: 58
+final config:[9, 4, 18, 95, 0.47, 0.69]
+evaluation: 70
+final bestescore: 59
+final config:[7, 2, 39, 138, 0.43, 0.67]
+evaluation: 60
+final bestescore: 58
+final config:[6, 2, 45, 149, 0.84, 0.4]
+evaluation: 60
+final bestescore: 58
+final config:[1, 3, 20, 103, 0.54, 0.74]
+evaluation: 50
+final bestescore: 58
+final config:[13, 6, 45, 66, 1.0, 0.8]
+evaluation: 60
+final bestescore: 57
+final config:[10, 2, 23, 50, 0.67, 0.62]
+evaluation: 60
+final bestescore: 59
+final config:[8, 5, 50, 95, 0.79, 0.72]
+evaluation: 50
+final bestescore: 57
+final config:[12, 11, 34, 123, 0.1, 0.97]
+evaluation: 60
+final bestescore: 59
+final config:[2, 4, 23, 98, 0.63, 0.55]
+evaluation: 60
+final bestescore: 59
+final config:[8, 4, 45, 128, 0.07, 0.87]
+Tuned_RF Running Time: 23.8862
+------------------------------
+
+evaluation: 60
+final bestescore: 26
+final config:[1, 12, 22, 108, 0.56, 0.45]
+evaluation: 80
+final bestescore: 62
+final config:[3, 2, 33, 137, 0.43, 0.67]
+evaluation: 60
+final bestescore: 65
+final config:[9, 7, 47, 92, 0.48, 1]
+evaluation: 80
+final bestescore: 31
+final config:[2, 17, 10, 67, 0.15, 1]
+evaluation: 60
+final bestescore: 64
+final config:[5, 4, 29, 72, 0.33, 0.75]
+evaluation: 60
+final bestescore: 66
+final config:[4, 7, 46, 149, 0.65, 0.96]
+evaluation: 70
+final bestescore: 27
+final config:[1, 9, 34, 150, 0.55, 0.41]
+evaluation: 60
+final bestescore: 60
+final config:[1, 3, 21, 73, 0.27, 0.66]
+evaluation: 50
+final bestescore: 63
+final config:[4, 7, 46, 79, 0.94, 0.74]
+evaluation: 60
+final bestescore: 32
+final config:[11, 13, 44, 119, 0.56, 0.5]
+evaluation: 50
+final bestescore: 60
+final config:[8, 8, 34, 120, 0.76, 0.47]
+evaluation: 50
+final bestescore: 64
+final config:[2, 11, 15, 82, 0.39, 0.91]
+evaluation: 60
+final bestescore: 30
+final config:[15, 12, 41, 88, 0.16, 0.92]
+evaluation: 50
+final bestescore: 60
+final config:[2, 6, 18, 86, 0.85, 0.65]
+evaluation: 80
+final bestescore: 65
+final config:[8, 8, 22, 55, 0.98, 1]
+evaluation: 60
+final bestescore: 30
+final config:[10, 14, 22, 80, 0.24, 0.56]
+evaluation: 50
+final bestescore: 63
+final config:[9, 2, 47, 50, 0.97, 0.46]
+evaluation: 100
+final bestescore: 68
+final config:[4, 10, 23, 150, 0.94, 1]
+evaluation: 60
+final bestescore: 27
+final config:[1, 15, 32, 80, 0.55, 0.47]
+evaluation: 60
+final bestescore: 59
+final config:[20, 9, 15, 78, 0.72, 1]
+evaluation: 70
+final bestescore: 65
+final config:[14, 11, 20, 128, 0.31, 1]
+evaluation: 50
+final bestescore: 24
+final config:[1, 13, 29, 51, 0.76, 0.36]
+evaluation: 50
+final bestescore: 61
+final config:[4, 5, 39, 76, 0.75, 0.73]
+evaluation: 60
+final bestescore: 65
+final config:[18, 8, 46, 136, 0.57, 0.94]
+evaluation: 70
+final bestescore: 29
+final config:[10, 3, 19, 82, 0.29, 0.36]
+evaluation: 50
+final bestescore: 61
+final config:[10, 4, 37, 84, 0.46, 0.57]
+evaluation: 50
+final bestescore: 63
+final config:[15, 15, 16, 92, 0.48, 0.94]
+evaluation: 50
+final bestescore: 30
+final config:[6, 11, 37, 54, 0.44, 0.52]
+evaluation: 50
+final bestescore: 59
+final config:[18, 10, 21, 138, 0.79, 0.81]
+evaluation: 50
+final bestescore: 66
+final config:[12, 3, 29, 132, 0.25, 0.95]
+Kmeans_RF Running Time: 74.5254
+------------------------------
+
+evaluation: 60
+final bestescore: 61
+final config:[9, 4, 18, 95, 0.32, 0.69]
+evaluation: 50
+final bestescore: 0
+final config:[7, 9, 17, 138, 0.43, 0.67]
