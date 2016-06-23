@@ -14,15 +14,17 @@ def sk_abcd(pred_lst, actual_lst, threshold):
     """
     p = lambda x: int(x * 100)
 
-    def isDef(x):
+    def isDef(x, threshold):
         return ["Defective" if i >= threshold else "Non-Defective" for i in x]
 
-    def getABCD(labels):
+    def getABCD(pred_label_lst, actual_label_lst, labels):
         """
+        :param pred_label_lst: predicted results represented in labels
+        :param actual_label_lst: actual results represented in labels
         :param label: all labels in this data sets
         :return (A,B,C,D)true negative, false negative, false positive, true positive
         """
-        for actual, predict in zip(actual_lst, pred_lst):
+        for actual, predict in zip(actual_label_lst, pred_label_lst):
             for i in labels:
                 if actual == i:
                     if actual == predict:
@@ -60,9 +62,17 @@ def sk_abcd(pred_lst, actual_lst, threshold):
         return out
 
     A, B, C, D = {}, {}, {}, {}
-    pred_lst = isDef(pred_lst)
-    actual_lst = isDef(actual_lst)
+    if isinstance(threshold, list):
+        # this is for local tuning, each model has a threshold
+        pred_label_lst = []
+        actual_label_lst = []
+        for index, this_threshold in enumerate(threshold):
+            pred_label_lst += isDef(pred_lst[index], this_threshold)
+            actual_label_lst += isDef(actual_lst[index], 1)
+    else:
+        pred_label_lst = isDef(pred_lst, threshold=threshold)
+        actual_label_lst = isDef(actual_lst, threshold=1)
     labels = ['Non-Defective', 'Defective']
-    A, B, C, D = getABCD(labels)
+    A, B, C, D = getABCD(pred_label_lst, actual_label_lst, labels)
     out = score(labels)
     return out
