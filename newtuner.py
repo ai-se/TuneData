@@ -8,7 +8,7 @@ from newabcd import sk_abcd
 
 class deBase(object):
     def __init__(self, predictor, tuned_objective, train_X, train_Y, test_X,
-                 test_Y, file_name):
+                 test_Y, file_name, frontier, isFinal):
         global The
         self.tobetuned = predictor.tunelst
         self.limit_max = predictor.tune_max
@@ -27,9 +27,10 @@ class deBase(object):
         self.file_name = file_name
         self.evaluation = 0
         self.scores = {}
-        self.frontier = [self.generate() for _ in xrange(self.np)]
+        self.frontier = frontier if frontier else [self.generate() for _ in xrange(self.np)]
         self.evaluate()
         self.bestconf, self.bestscore = self.best()
+        self.isFinal = isFinal
 
     def generate(self):
         candidates = []
@@ -179,12 +180,15 @@ class deBase(object):
             if not changed:
                 self.life -= 1
             changed = False
-        self.writeResults()
-        print "final bestescore %s: " + str(self.bestscore)
-        print "final bestconf %s: " + str(self.bestconf)
-        print "DONE !!!!"
-        clf,threshold = self.assign(self.bestconf)
-        return clf,threshold
+        if self.isFinal:
+            self.writeResults()
+            print "final bestescore %s: " + str(self.bestscore)
+            print "final bestconf %s: " + str(self.bestconf)
+            print "DONE !!!!"
+            clf,threshold = self.assign(self.bestconf)
+            return clf,threshold
+        else:
+            return self.frontier
 
 
 class WhereDE(deBase):
@@ -223,9 +227,9 @@ class RfDE(deBase):
 
 
 def DE_tuner(predictor, goal_index, new_train_X, new_train_Y, new_test_X,
-             new_test_Y, file_name):
+             new_test_Y, file_name, frontier=None, isFinal=True):
     tuner = deBase(predictor, goal_index, new_train_X, new_train_Y, new_test_X,
-                   new_test_Y, file_name)
+                   new_test_Y, file_name,frontier=frontier,isFinal=isFinal)
 
     clf = tuner.DE()
     return clf
